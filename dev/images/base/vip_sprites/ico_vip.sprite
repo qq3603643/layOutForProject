@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SpriteFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" CssFileName="../images/base" ImageName="ico_vip" IsPhone="false" SpriteImgFileType="Png" xmlns="CssSprite">
+  <SpriteList>
+    <Sprite Path="vip_ico2.png" LocationX="0" LocationY="0" />
+    <Sprite Path="vip_ico5.png" LocationX="64" LocationY="0" />
+    <Sprite Path="vip_ico6.png" LocationX="129" LocationY="0" />
+    <Sprite Path="vip_ico4.png" LocationX="194" LocationY="0" />
+    <Sprite Path="vip_ico1.png" LocationX="261" LocationY="0" />
+    <Sprite Path="vip_ico3.png" LocationX="332" LocationY="0" />
+  </SpriteList>
+</SpriteFile>

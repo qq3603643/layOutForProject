@@ -1,0 +1,121 @@
+@charset "UTF-8";
+//-----------------------------------------------------	
+//主框架
+//全局模块以 .y-开头
+//-----------------------------------------------------
+/**	
+ * 主框架
+ * 全局模块以 .y-开头
+**/
+
+.y-layout{
+	@extend %layout;
+}
+
+
+//通栏广告
+.yAd-top{
+	background-color: #1075e7;	
+	.yAd-in{
+		margin-top: 0;
+		position: relative;
+		.yAd-top-0{
+			overflow: hidden;
+			display: none;
+		}
+		.yAd-top-1{
+			overflow: hidden;
+			position: absolute; 
+			top: 0px;
+			left: 0px;
+			height: 500px;
+			z-index: 2;
+		}
+	}
+}
+.yAd-bar{
+	@extend %layout;
+	overflow: hidden;
+}
+.yAd-in{
+	position: relative;
+	margin-top: 20px;
+	margin-right: -10px;
+	a{
+		float: left;
+		margin-right: 10px;
+	}
+	
+}
+
+//遮罩
+.y-layer-shade{
+	display: block;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: url(../images/base/black_opacity_60.png) repeat;
+	z-index: 999;
+}
+//指导
+.y-guide-box{
+	position: relative;
+	background-color: $white;
+	z-index: 1000 !important;
+}
+.y-guide-info{
+	position: absolute;
+	z-index: 1001;
+	a{
+		display: block;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		height: 48px;
+		width: 100%;
+		background: none;
+	}
+}
+.y-btn-close{
+	display: block;
+	width: 32px;
+	height: 32px;
+	background: url(../images/base/btn_close_big.png) no-repeat;
+}
+
+.btn-layer-close{
+	display: block;
+	position: absolute;
+	right: 15px;
+	top: 10px;
+	font-size: 24px;
+	font-family: $fontCn;
+	z-index: 99;
+	color: #bbb;
+	&:hover{
+		color: $green;
+	}
+}
+
+
+
+//loading
+.loading-small, .loading-middle, .loading-large{
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+}
+.loading-small{
+	background: url(../images/base/loading.gif) center center no-repeat;
+}
+.loading-middle{
+	background: url(../images/base/loading.gif) center center no-repeat;
+}
+.loading-large{
+	background: url(../images/base/loading.gif) center center no-repeat;
+}

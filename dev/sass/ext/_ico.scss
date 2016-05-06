@@ -1,0 +1,181 @@
+@charset "utf-8";
+
+$icomainShow : false !default; //是否输出图标样式
+
+//mixin
+@mixin ico_main{background:url(../images/base/ico_main.png) no-repeat ;}
+@mixin ico_arrows_right{height:12px;width:6px;background-position:0 0;}
+@mixin ico_bg_border_radius_left{height:20px;width:8px;background-position:0 -12px;}
+@mixin ico_bg_border_radius_right{height:20px;width:8px;background-position:0 -32px;}
+@mixin ico_menu_3{height:16px;width:9px;background-position:0 -52px;}
+@mixin ico_close_1{height:11px;width:11px;background-position:0 -68px;}
+@mixin ico_arrows_right2{height:23px;width:11px;background-position:0 -79px;}
+@mixin ico_menu_4{height:16px;width:12px;background-position:0 -102px;}
+@mixin ico_menu_2{height:16px;width:12px;background-position:0 -118px;}
+@mixin ico_menu_7{height:16px;width:12px;background-position:0 -134px;}
+@mixin ico_menu_5{height:16px;width:14px;background-position:0 -150px;}
+@mixin ico_phone_2{height:16px;width:15px;background-position:0 -166px;}
+@mixin ico_menu_1{height:17px;width:16px;background-position:0 -182px;}
+@mixin ico_list{height:11px;width:16px;background-position:0 -199px;}
+@mixin ico_word{height:16px;width:16px;background-position:0 -210px;}
+@mixin ico_menu_8{height:16px;width:16px;background-position:0 -226px;}
+@mixin ico_menu_6{height:14px;width:16px;background-position:0 -242px;}
+@mixin ico_powerpoint{height:16px;width:16px;background-position:0 -256px;}
+@mixin ico_excel{height:16px;width:16px;background-position:0 -272px;}
+@mixin ico_go{height:16px;width:16px;background-position:0 -288px;}
+@mixin ico_pdf{height:16px;width:16px;background-position:0 -304px;}
+@mixin ico_my_white{height:24px;width:24px;background-position:0 -320px;}
+@mixin ico_my_gray{height:24px;width:24px;background-position:0 -344px;}
+@mixin ico_chart_white{height:23px;width:24px;background-position:0 -368px;}
+@mixin ico_code_white{height:24px;width:24px;background-position:0 -391px;}
+@mixin ico_code_black{height:24px;width:24px;background-position:0 -415px;}
+@mixin ico_chart_gray{height:23px;width:24px;background-position:0 -439px;}
+@mixin ico_bar_cart_gray{height:18px;width:24px;background-position:0 -462px;}
+@mixin ico_bar_cart_white{height:18px;width:24px;background-position:0 -480px;}
+@mixin ico_gotop{height:14px;width:25px;background-position:0 -498px;}
+@mixin ico_gotop_hover{height:14px;width:25px;background-position:0 -512px;}
+@mixin ico_phone{height:28px;width:28px;background-position:0 -526px;}
+@mixin ico_prev_small{height:50px;width:30px;background-position:0 -554px;}
+@mixin ico_next_small{height:50px;width:30px;background-position:0 -604px;}
+@mixin ico_next_small_hover{height:50px;width:30px;background-position:0 -654px;}
+@mixin ico_prev_small_hover{height:50px;width:30px;background-position:0 -704px;}
+@mixin ico_zi{height:42px;width:38px;background-position:0 -754px;}
+@mixin ico_baozhuang{height:42px;width:38px;background-position:0 -796px;}
+@mixin ico_jian{height:42px;width:42px;background-position:0 -838px;}
+@mixin ico_peifu{height:42px;width:42px;background-position:0 -880px;}
+@mixin ico_renzheng{height:32px;width:43px;background-position:0 -922px;}
+
+
+
+
+
+
+//卖家等级图标
+@mixin ico_seller_level{background:url(../images/base/ico_seller_level.png) no-repeat ;}
+@mixin seller_level_4{height:13px;width:16px;background-position:0 0;}
+@mixin seller_level_5{height:16px;width:16px;background-position:0 -13px;}
+@mixin seller_level_6{height:16px;width:16px;background-position:0 -29px;}
+@mixin seller_level_1{height:13px;width:16px;background-position:0 -45px;}
+@mixin seller_level_2{height:13px;width:16px;background-position:0 -58px;}
+@mixin seller_level_3{height:16px;width:18px;background-position:0 -71px;}
+
+//买家等级图标
+@mixin buyer_level_1{display:inline-block;height:16px;width:16px;background: url(../images/base/level_buyer_1.gif) no-repeat;}
+@mixin buyer_level_2{display:inline-block;height:16px;width:16px;background: url(../images/base/level_buyer_2.gif) no-repeat;}
+@mixin buyer_level_3{display:inline-block;height:16px;width:16px;background: url(../images/base/level_buyer_3.gif) no-repeat;}
+@mixin buyer_level_4{display:inline-block;height:16px;width:16px;background: url(../images/base/level_buyer_3.gif) no-repeat;}
+
+
+
+
+//直接输出
+@if $icomainShow{
+.ico_main{background:url(../images/base/ico_main.png) no-repeat ;}
+.ico_arrows_right{height:12px;width:6px;background-position:0 0;}
+.ico_bg_border_radius_left{height:20px;width:8px;background-position:0 -12px;}
+.ico_bg_border_radius_right{height:20px;width:8px;background-position:0 -32px;}
+.ico_menu_3{height:16px;width:9px;background-position:0 -52px;}
+.ico_close_1{height:11px;width:11px;background-position:0 -68px;}
+.ico_arrows_right2{height:23px;width:11px;background-position:0 -79px;}
+.ico_menu_4{height:16px;width:12px;background-position:0 -102px;}
+.ico_menu_2{height:16px;width:12px;background-position:0 -118px;}
+.ico_menu_7{height:16px;width:12px;background-position:0 -134px;}
+.ico_menu_5{height:16px;width:14px;background-position:0 -150px;}
+.ico_phone_2{height:16px;width:15px;background-position:0 -166px;}
+.ico_menu_1{height:17px;width:16px;background-position:0 -182px;}
+.ico_list{height:11px;width:16px;background-position:0 -199px;}
+.ico_word{height:16px;width:16px;background-position:0 -210px;}
+.ico_menu_8{height:16px;width:16px;background-position:0 -226px;}
+.ico_menu_6{height:14px;width:16px;background-position:0 -242px;}
+.ico_powerpoint{height:16px;width:16px;background-position:0 -256px;}
+.ico_excel{height:16px;width:16px;background-position:0 -272px;}
+.ico_go{height:16px;width:16px;background-position:0 -288px;}
+.ico_pdf{height:16px;width:16px;background-position:0 -304px;}
+.ico_my_white{height:24px;width:24px;background-position:0 -320px;}
+.ico_my_gray{height:24px;width:24px;background-position:0 -344px;}
+.ico_chart_white{height:23px;width:24px;background-position:0 -368px;}
+.ico_code_white{height:24px;width:24px;background-position:0 -391px;}
+.ico_code_black{height:24px;width:24px;background-position:0 -415px;}
+.ico_chart_gray{height:23px;width:24px;background-position:0 -439px;}
+.ico_bar_cart_gray{height:18px;width:24px;background-position:0 -462px;}
+.ico_bar_cart_white{height:18px;width:24px;background-position:0 -480px;}
+.ico_gotop{height:14px;width:25px;background-position:0 -498px;}
+.ico_gotop_hover{height:14px;width:25px;background-position:0 -512px;}
+.ico_phone{height:28px;width:28px;background-position:0 -526px;}
+.ico_prev_small{height:50px;width:30px;background-position:0 -554px;}
+.ico_next_small{height:50px;width:30px;background-position:0 -604px;}
+.ico_next_small_hover{height:50px;width:30px;background-position:0 -654px;}
+.ico_prev_small_hover{height:50px;width:30px;background-position:0 -704px;}
+.ico_zi{height:42px;width:38px;background-position:0 -754px;}
+.ico_baozhuang{height:42px;width:38px;background-position:0 -796px;}
+.ico_jian{height:42px;width:42px;background-position:0 -838px;}
+.ico_peifu{height:42px;width:42px;background-position:0 -880px;}
+.ico_renzheng{height:32px;width:43px;background-position:0 -922px;}
+
+
+
+
+
+
+
+//卖家等级图标
+.ico_seller_level{margin-left:2px;background:url(../images/base/ico_seller_level.png) no-repeat;}
+.seller_level_4{height:13px;width:16px;background-position:0 0;}
+.seller_level_5{height:16px;width:16px;background-position:0 -13px;}
+.seller_level_6{height:16px;width:16px;background-position:0 -29px;}
+.seller_level_1{height:13px;width:16px;background-position:0 -45px;}
+.seller_level_2{height:13px;width:16px;background-position:0 -58px;}
+.seller_level_3{height:16px;width:18px;background-position:0 -71px;}
+
+//买家等级
+.buyer_level_1{display:inline-block;height:16px;width:16px;background: url(../images/base/level_buyer_1.gif) no-repeat;vertical-align: middle}
+.buyer_level_2{display:inline-block;height:16px;width:16px;background: url(../images/base/level_buyer_2.gif) no-repeat;vertical-align: middle}
+.buyer_level_3{display:inline-block;height:16px;width:16px;background: url(../images/base/level_buyer_3.gif) no-repeat;vertical-align: middle}
+.buyer_level_4{display:inline-block;height:16px;width:16px;background: url(../images/base/level_buyer_3.gif) no-repeat;vertical-align: middle}
+
+
+//认证
+.ico_attestation, .ico_unattestation{
+	display: inline-block;
+	margin-right: 4px;
+	padding: 0 5px;
+	height: 23px;
+	line-height: 23px;
+	background-color: #77c552;
+	color: #fff;
+	font-size:12px;
+	font-style: normal;
+	.iconfont{
+		margin-right: 5px;
+		font-size: 12px;
+	}
+}
+.ico_unattestation{
+	background-color: #e3e3e2;
+}
+.ico_rx{
+	position: absolute;
+	right: -15px;
+	top: 6px;
+	display: block;
+	width: 28px;
+	height: 16px;
+	background: url(../images/base/ico_rx.png) no-repeat;
+}
+.ico_hot{
+	position: absolute;
+	right: -10px;
+	top: 6px;
+	display: block;
+	width: 23px;
+	height: 11px;
+	background: url(../images/base/ico_hot.png) no-repeat;
+}
+
+}
+
+
+
+
+
+

@@ -1,0 +1,20 @@
+@charset "UTF-8";
+//-----------------------------------------------------	
+// base scss
+// 提供所有的基础功能包括：变量设置，css3前缀填充，@media，基础mixin，栅格化grid，reset样式, lalyou
+// 默认会输出基础样式样式一份
+//-----------------------------------------------------
+
+// 
+//-----------------------------------------------------
+$gridShowBg : false; //显示栅格系统背景
+$gridPercentSwitch: true; // 默认为固定宽度布局，设置为true为百分比
+$gridSpanSwitch : true; //开启栅格
+$icomainShow : true; //开启icomain输出
+@import "function";
+@import "core/reset";
+@import "ext/font";
+@import "ext/ico";
+@import "layout";
+//第三方库
+@import "../libs/mCustomScrollbar/jquery.mCustomScrollbar.css"

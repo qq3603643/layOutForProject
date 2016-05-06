@@ -1,0 +1,29 @@
+body
+{
+    font: 14px/24px 'microsoft yahei';
+
+    margin: 0;
+    h2
+    {
+        font-size: 18px;
+    }
+    .btn-mine
+    {
+        display: block;
+
+        padding: 4px 6px;
+
+        color: #fff;
+        border: 0;
+        border-radius: 0;
+        outline: 0;
+        background: silver;
+        &:hover
+        {
+            cursor: pointer;
+            transition: .6s;
+
+            color: #000;
+        }
+    }
+}
