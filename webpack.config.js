@@ -2,7 +2,7 @@ var path = require('path'),
     srcJsPath = path.resolve(__dirname,'src/js'),
     webpack = require('webpack'),
     //文件分离打包
-    ExtractTextPlugin = require("extract-text-webpack-plugin");
+    ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   //入口
@@ -19,7 +19,7 @@ module.exports = {
     path: path.resolve(__dirname,'bulid'),
    //目前发现的作用是设置css里面的url路径相关的位置(为url路径)暂时理解为加在文件保存路径前面的东东
     publicPath: '../',
-    filename: "js/[name].min.js?[hash]"
+    filename: 'js/[name].min.js?[hash]'
   },
   //加载器
   module: {
@@ -27,20 +27,17 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: [/node_modules/,/plugins/],
-        loader:'babel',
-        query: {
-          presets: ['es2015']
-        },
+        loaders: ['es3ify-loader',"babel-loader?presets[]=es2015"], 
       },
       {
         test: /.css$/,
         //-url可以保持原来css文件内地的url地址原样(css-loader-url)
-        loader:  ExtractTextPlugin.extract("style-loader","css-loader",'postcss-loader')
+        loader:  ExtractTextPlugin.extract('style-loader','css-loader','postcss-loader')
       },
       { 
         test: /\.(jpg|png|jpeg)$/,
         //小于8172b的将压缩成base64格式大于则保存至output下的path下的制定目录
-        loader: "url-loader?limit=8172&name=pics/[name].[ext]"
+        loader: 'url-loader?limit=8172&name=pics/[name].[ext]'
       },
     ]
   },
