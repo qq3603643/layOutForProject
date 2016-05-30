@@ -21,6 +21,7 @@ module.exports = {
     publicPath: '../',
     filename: "js/[name].min.js?[hash]"
   },
+  //加载器
   module: {
     loaders: [
       {
@@ -52,6 +53,7 @@ module.exports = {
       'js': path.join(__dirname,'src/js')
     }
   },
+  //插件
   plugins: [
         //删除重复
         new webpack.optimize.DedupePlugin(),
@@ -70,6 +72,13 @@ module.exports = {
           'window.jQuery':'jquery'
         }),
         new webpack.NoErrorsPlugin()
-    ],
+  ],
+  //服务
+  // devServer: {
+  //   historyApiFallback: true,
+  //   hot: true,
+  //   inline: true,
+  //   progress: true,
+  // },
   watch: !0
 }
