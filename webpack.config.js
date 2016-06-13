@@ -8,10 +8,8 @@ module.exports = {
   //入口
   entry: {
     // 'one': path.resolve(srcJsPath,'1.js'),
-    'two': [path.resolve(srcJsPath,'two.js')],
-    // 'three': path.resolve(srcJsPath,'three.js'),
-    // 'jq-es': path.resolve(srcJsPath,'jq-es.js'),
-    // 'drag': path.resolve(srcJsPath,'drag.js')
+    //'two': [path.resolve(srcJsPath,'two.js')],
+    'test': path.resolve(srcJsPath,'test.js')
   },
   //出口
   output: {
@@ -26,15 +24,15 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        exclude: [/node_modules/,/plugins/],
-        loaders: ['es3ify-loader',"babel-loader?presets[]=es2015"], 
+        exclude: [/node_modules/,path.resolve(__dirname,'plugins/jquery/')],
+        loaders: ['es3ify-loader',"babel-loader?presets[]=es2015"],
       },
       {
         test: /.css$/,
         //-url可以保持原来css文件内地的url地址原样(css-loader-url)
         loader:  ExtractTextPlugin.extract('style-loader','css-loader','postcss-loader')
       },
-      { 
+      {
         test: /\.(jpg|png|jpeg)$/,
         //小于8172b的将压缩成base64格式大于则保存至output下的path下的制定目录
         loader: 'url-loader?limit=8172&name=pics/[name].[ext]'
@@ -55,11 +53,11 @@ module.exports = {
         //删除重复
         new webpack.optimize.DedupePlugin(),
         //压缩代码 开发环境时可不开启（便于查看源码）
-        // new webpack.optimize.UglifyJsPlugin({
-        //   compress: {
-        //     warnings: false
-        //   }
-        // }),
+        new webpack.optimize.UglifyJsPlugin({
+          compress: {
+            warnings: false
+          }
+        }),
         //分离css（这里面的路径是在output的path基础上设置的）
         new ExtractTextPlugin('css/[name].min.css?[hash]'),
         //直接从/node_modules/中提取的js，可在全局js中直接使用，用npm install *** 安装在此目录下
