@@ -7,7 +7,7 @@ var path = require('path'),
 module.exports = {
   //入口
   entry: {
-    't_test': path.resolve(path.resolve(srcJsPath,'test.js')),
+    't_test': path.resolve(srcJsPath,'test.js'),
   },
   //出口
   output: {
