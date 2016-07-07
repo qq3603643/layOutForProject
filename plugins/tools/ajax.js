@@ -13,7 +13,11 @@ define([],function(){
 		        beforeSend : config.beforeSend,
 		        success: config.success,
 		        error:function(){
+<<<<<<< HEAD
 		        	//console.log('网络错误')
+=======
+		        	//console.log('网络错误')	
+>>>>>>> 7877b8e8fdd67e01162fdf99c45ef4f1111b7036
 		        }
 		    }).always(fn);
 		},
@@ -24,7 +28,11 @@ define([],function(){
 		 * 	"url" : "url",
 		 * 	"data" : {},
 		 * 	"beforeSend" : function(){},
+<<<<<<< HEAD
 		 * 	"success" : function(){}
+=======
+		 * 	"success" : function(){}					
+>>>>>>> 7877b8e8fdd67e01162fdf99c45ef4f1111b7036
 		 * }
 		 */
 		get : function(config){
@@ -38,7 +46,11 @@ define([],function(){
 		 * 	"url" : "url",
 		 * 	"data" : {},
 		 * 	"beforeSend" : function(){},
+<<<<<<< HEAD
 		 * 	"success" : function(){}
+=======
+		 * 	"success" : function(){}					
+>>>>>>> 7877b8e8fdd67e01162fdf99c45ef4f1111b7036
 		 * }
 		 */
 		post : function(config){
