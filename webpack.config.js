@@ -49,7 +49,8 @@ module.exports = {
     ]
   },
   postcss: function() {
-    console.log('正在调用postcss...');
+    //precss 可在.css文件中以scss形式书写css; autoprefixer可自动添加css3的一些前缀
+    console.log('正在调用postcss编译css,耐心等待你是最棒的...');
     return [require('precss'),require('autoprefixer')];
   },
   //简便设置
