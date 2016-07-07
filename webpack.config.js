@@ -35,7 +35,7 @@ module.exports = {
       {
         test: /\.css$/,
         //-url可以保持原来css文件内地的url地址原样(css-loader-url)
-        loader: ExtractTextPlugin.extract('style-loader','css-loader!postcss-loader!'),
+        loader: ExtractTextPlugin.extract('style-loader','css-loader!postcss-loader'),
       },
       {
         test: /\.scss/,
