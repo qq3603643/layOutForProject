@@ -35,7 +35,11 @@ module.exports = {
       {
         test: /\.css$/,
         //-url可以保持原来css文件内地的url地址原样(css-loader-url)
-        loader: ExtractTextPlugin.extract('style-loader','css-loader','postcss-loader'),
+        loader: ExtractTextPlugin.extract('style-loader','css-loader!postcss-loader!'),
+      },
+      {
+        test: /\.scss/,
+        loader: 'style!css!sass',
       },
       {
         test: /\.(jpg|png|jpeg|svg)$/,
@@ -44,9 +48,14 @@ module.exports = {
       },
     ]
   },
+  postcss: function() {
+    console.log('正在调用postcss...');
+    return [require('precss'),require('autoprefixer')];
+  },
+  //简便设置
   resolve: {
 
-    extensions: ['','.js','.css','.png','.jpg','.jpeg'],
+    extensions: ['','.js','.css','.sass','.png','.jpg','.jpeg'],
     alias: {
       //设置一些快捷的路径 在js中require时便于使用
       'plugins': path.join(__dirname,'plugins'),
@@ -70,7 +79,7 @@ module.exports = {
 
         //html
         // new HtmlWebpackPlugin({
-        //   //这个地方怎么改成自动
+        //   //这个地方怎么改成自动,如下
         //   filename:'guideH5/index.html',
         //   template:'src/guideH5/index.html',
         // }),

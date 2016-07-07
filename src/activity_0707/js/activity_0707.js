@@ -299,9 +299,7 @@ let total_hotHtml='';
 
 //初始化商品状态
 const
-	  // time_server=Win.time*1000;
-	  time_server=new Date()*1;
-	  // console.log(`month: ${new Date().getMonth()+1}; day: ${new Date().getDate()}`);
+	  time_server=Win.time*1000;
 let times_activity=[
 	   '2016-07-12 14:00:00',
 	   '2016-07-15 14:00:00',
@@ -313,7 +311,6 @@ let times_activity=[
 	   '2016-08-05 14:00:00',
 	  ];
    times_activity=times_activity.map(item=>new Date(item)*1).concat(time_server).sort();
-   // console.log(times_activity);
 let index=times_activity.findIndex(item=>item==time_server);
 	// console.log(index);
 if(index>0){
@@ -322,7 +319,6 @@ if(index>0){
 	$.each($('.setion1 ul li'),(i,item)=>{
 		let goods_now=$(item);
 		if(i==index){
-			// console.log(goods_now);
 			goods_now.find('.item_goods').addClass('today');
 			goods_now.find('#toBuy').addClass('btn_active');
 		}else{

@@ -1,5 +1,7 @@
 {
   "devDependencies": {
+    "autoprefixer": "^6.3.7",
+    "autoprefixer-loader": "^3.2.0",
     "babel-core": "^6.9.0",
     "babel-loader": "^6.2.4",
     "babel-polyfill": "^6.9.0",
@@ -12,8 +14,10 @@
     "file-loader": "^0.8.5",
     "html-webpack-plugin": "^2.22.0",
     "jquery": "^1.11.3",
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3",
     "postcss-loader": "^0.9.1",
-    "scss-loader": "0.0.1",
+    "precss": "^1.4.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.1",
