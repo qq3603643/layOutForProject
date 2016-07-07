@@ -161,7 +161,7 @@ define([],()=>{
 		      				addEvent(item,event,item[event+'Fns']);
 		      				return false;
 		      			}
-		      			item[event+'Fns'].push(fn);
+		      			item[event+'Fns'].push(fn);  //此处自需要在事件数组中加入事件函数即可(重点)
 		      		})
 		      	},
 
@@ -279,7 +279,7 @@ define([],()=>{
 		      			let nodes=tepDiv.childNodes,tepFragment=document.createDocumentFragment();
 
 		      			Array.from(nodes).forEach(item=>{
-		      				tepFragment.appendChild(item.cloneNode(!0));
+		      				tepFragment.appendChild(item.cloneNode(!0)); //使用clone的原因在于可以多次append，appendChild类似剪切
 		      			})
 		      			eles.forEach(item=>{
 		      				item.appendChild(tepFragment.cloneNode(!0));
@@ -336,7 +336,7 @@ define([],()=>{
 		      		let xhr=null,params=[];
 		      			type=type.toUpperCase();
 		      		return new Promise((resolve,reject)=>{
-		      			xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP'); 
+		      			xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
 		      			if(type=='GET'&&Object.keys(data).length){
 			      			for(let key of Object.keys(data)){
 			      				params[params.length]=`${key}=${data[key]}`;

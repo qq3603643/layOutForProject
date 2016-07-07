@@ -1,0 +1,39 @@
+/* create by tangerine */
+/* reset */
+body, dl, dd, p, form{ margin: 0; }
+h2,h3,h4,h5,b,strong,span{ font-weight: normal; }
+ol,ul{ margin: 0; padding: 0;list-style: none; }
+i,em{ font-style: normal; }
+a,a:active{ text-decoration: none; color: #000; }
+img{ border: none; }
+body{ font: 14px/20px 'microsoft yahei'; }
+
+/* html,body */
+body{ background:#ffcabc !important; }
+
+/* global */
+.wd_110{ width:110px; }
+.wd_160{ width:160px; }
+.wd_246{ width:246px; }
+.wd_1094{ width:1094px; }
+.ht_484{ height:484px; }
+.ht_106{ height:106px; }
+.ht_99{ height:99px; }
+.c99{ color:#999999; }
+.btn_active{ background:#e95853; }
+.btn:hover{ color: #fff !important; }
+
+/* main */
+.header{ background:url('../pics/bg_header.png') no-repeat center; }
+.setion1>h2{ background:#e95853 url('../pics/title_setion1.png') no-repeat center; }
+.setion1>.content{ background:#e95853; }
+.pic_item{ height:220px;margin-top:10px; }
+.pic_item>img{ max-width:220px;height:auto; }
+.item_goods>p{ margin:4px 0;text-indent:26px; }
+
+.setion2>h2{ background:#ffcabc url('../pics/title_setion2.png') no-repeat center; }
+.setion2>.content{ background:#fca29f;padding-top:28px; }
+.setion3{ height:704px;background:#ffcabc url('../pics/bg_shop.png') no-repeat center; }
+
+.today{ position:relative; }
+.today .icon_limit{ position:absolute;width:96px;height:101px;top:-7px;left:-7px;background:url('../pics/time_limit.png') no-repeat center; }

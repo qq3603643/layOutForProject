@@ -1,15 +1,19 @@
 var path = require('path'),
     srcJsPath = path.resolve(__dirname,'src/js'),
     webpack = require('webpack'),
-    //文件分离打包
+    //html
+    HtmlWebpackPlugin = require('html-webpack-plugin'),
+    //文件分离打包(css)
     ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   //入口
   entry: {
-    // 'one': path.resolve(srcJsPath,'1.js'),
-    //'two': [path.resolve(srcJsPath,'two.js')],
-    'test': path.resolve(srcJsPath,'test.js')
+    'guideH5':[path.resolve(__dirname,'plugins/mobile/zepto.min.js'),
+               path.resolve(__dirname,'src/guideH5/js/heighLight.js'),
+               path.resolve(__dirname,'src/guideH5/js/index.js'),
+              ],
+    // 'activity_0707':path.resolve(__dirname,'src/activity_0707/js/activity_0707.js'),
   },
   //出口
   output: {
@@ -17,25 +21,26 @@ module.exports = {
     path: path.resolve(__dirname,'bulid'),
    //目前发现的作用是设置css里面的url路径相关的位置(为url路径)暂时理解为加在文件保存路径前面的东东
     publicPath: '../',
-    filename: 'js/[name].min.js?[hash]'
+    filename: '[name]/js/[name].min.js?[hash]',
   },
   //加载器
   module: {
     loaders: [
       {
         test: /\.js$/,
-        exclude: [/node_modules/,path.resolve(__dirname,'plugins/jquery/')],
+        //以下文件不参与js编译
+        exclude: [/node_modules/,path.resolve(__dirname,'plugins/jquery'),path.resolve(__dirname,'plugins/tools')],
         loaders: ['es3ify-loader',"babel-loader?presets[]=es2015"],
       },
       {
-        test: /.css$/,
+        test: /\.css$/,
         //-url可以保持原来css文件内地的url地址原样(css-loader-url)
-        loader:  ExtractTextPlugin.extract('style-loader','css-loader','postcss-loader')
+        loader: ExtractTextPlugin.extract('style-loader','css-loader','postcss-loader'),
       },
       {
-        test: /\.(jpg|png|jpeg)$/,
+        test: /\.(jpg|png|jpeg|svg)$/,
         //小于8172b的将压缩成base64格式大于则保存至output下的path下的制定目录
-        loader: 'url-loader?limit=8172&name=pics/[name].[ext]'
+        loader: 'url-loader?limit=8172&name=pics/[name].[ext]',
       },
     ]
   },
@@ -44,8 +49,9 @@ module.exports = {
     extensions: ['','.js','.css','.png','.jpg','.jpeg'],
     alias: {
       //设置一些快捷的路径 在js中require时便于使用
-      'jquery': path.join(__dirname,'plugins/jquery/jquery.js'),
-      'js': path.join(__dirname,'src/js')
+      'plugins': path.join(__dirname,'plugins'),
+      'tools': path.join(__dirname,'plugins/tools'),
+      'js': path.join(__dirname,'src/js'),
     }
   },
   //插件
@@ -55,25 +61,38 @@ module.exports = {
         //压缩代码 开发环境时可不开启（便于查看源码）
         new webpack.optimize.UglifyJsPlugin({
           compress: {
-            warnings: false
+            warnings: false,
           }
         }),
+
         //分离css（这里面的路径是在output的path基础上设置的）
-        new ExtractTextPlugin('css/[name].min.css?[hash]'),
-        //直接从/node_modules/中提取的js，可在全局js中直接使用，用npm install *** 安装在此目录下
-        new webpack.ProvidePlugin({
-          '$':'jquery',
-          'jQuery':'jquery',
-          'window.jQuery':'jquery'
+        new ExtractTextPlugin('[name]/css/[name].min.css?[hash]'),
+
+        //html
+        // new HtmlWebpackPlugin({
+        //   filename:'activity_0707/index.html',
+        //   template:'src/activity_0707/index.html',
+        // }),
+        new HtmlWebpackPlugin({
+          //这个地方怎么改成自动...
+          filename:'guideH5/index.html',
+          template:'src/guideH5/index.html',
         }),
-        new webpack.NoErrorsPlugin()
+
+        //直接从/node_modules/中提取的js，可在全局js中直接使用，用npm install *** 安装在此目录下
+        // new webpack.ProvidePlugin({
+        //   '$':'jquery',
+        //   'jQuery':'jquery',
+        //   'window.jQuery':'jquery',
+        // }),
+        new webpack.NoErrorsPlugin(),
   ],
   //服务
-  // devServer: {
-  //   historyApiFallback: true,
-  //   hot: true,
-  //   inline: true,
-  //   progress: true,
-  // },
+  devServer: {
+    historyApiFallback: true,
+    hot: true,
+    inline: true,
+    progress: true,
+  },
   watch: !0
 }
