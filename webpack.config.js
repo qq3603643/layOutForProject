@@ -70,14 +70,10 @@ module.exports = {
 
         //html
         // new HtmlWebpackPlugin({
-        //   filename:'activity_0707/index.html',
-        //   template:'src/activity_0707/index.html',
+        //   //这个地方怎么改成自动
+        //   filename:'guideH5/index.html',
+        //   template:'src/guideH5/index.html',
         // }),
-        new HtmlWebpackPlugin({
-          //这个地方怎么改成自动
-          filename:'guideH5/index.html',
-          template:'src/guideH5/index.html',
-        }),
 
         //直接从/node_modules/中提取的js，可在全局js中直接使用，用npm install *** 安装在此目录下
         // new webpack.ProvidePlugin({
@@ -95,4 +91,15 @@ module.exports = {
     progress: true,
   },
   watch: !0
+}
+
+//动态生成html...
+for(var attr in module.exports.entry){
+  console.log('正在生成'+attr+'所需html...主人请耐心等待呃...');
+  module.exports.plugins.push(
+        new HtmlWebpackPlugin({
+          filename:attr+'/index.html',
+          template:'src/'+attr+'/index.html',
+        })
+  );
 }
