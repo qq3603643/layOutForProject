@@ -74,7 +74,7 @@ module.exports = {
         //   template:'src/activity_0707/index.html',
         // }),
         new HtmlWebpackPlugin({
-          //这个地方怎么改成自动...
+          //这个地方怎么改成自动
           filename:'guideH5/index.html',
           template:'src/guideH5/index.html',
         }),
