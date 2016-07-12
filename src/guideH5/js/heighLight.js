@@ -1,48 +1,51 @@
 //jq选中元素可直接通过heighLight()高亮显示
-//样式请设置在该元素的class上，id只用于js操作
 (function($){
 
 	$.extend($.fn,{
 		'heighLight':function(){
-			let _this=$(this),
-				_id=this[0].id,
-				cssText=`
-				 		#${_id}:after{display:block;content:'';position:absolute;top:-1000px;bottom:-1000px;left:-1000px;right:-1000px;background:rgba(0,0,0,.6); }
-					 	`;
-			$('head').append($('<style>').html(cssText));
-			$(this).find('*').css({
-				'position':'relative',
-				'z-index':'10',
-			});
-			let tips=$('<div>').html('&#x21d0; 点击继续').addClass('twinkle');
-			tips.css({
+// console.log(this);
+			let
+				_this=this[0],
+				top=_this.getBoundingClientRect().top,
+				left=_this.getBoundingClientRect().left,
+				bottom=$(window).height()-_this.offsetHeight-top,
+				right=$(window).width()-_this.offsetWidth-left,
+				$cover=$('<div>').attr('id','cover');
+			$cover.css({
+				'width':_this.offsetWidth,
+				'height':_this.offsetHeight,
 				'position':'fixed',
-				'left':(_this.offset().left+_this.width()+10)+'px',
-				'top':(_this.offset().top+(_this.height()-tips.height())/2-10)+'px',
+				'top':'0',
+				'left':'0',
+				'border':'0 solid #000',
+				'border-width':`${top}px ${right}px ${bottom}px ${left}px`,
+				'opacity':'.6',
+				'z-index':'3',
+				'transition':'all .4s',
 			});
-			setTimeout(()=>{
-				$('body').append(tips);
-			},999)
+			let
+				cssText=`#cover:after{ position:absolute;content:'';width:100%;height:100%;left:-100px;top:-100px;border:100px solid #000;border-radius:40%;box-shadow:inset 0 0 5px 2px rgba(0,0,0,.75); }
+					.of_h{ overflow:hidden; }
+					`;
+			$('head').prepend($('<style>').attr('data_id','cover').html(cssText));
+			$('body').append($cover).addClass('of_h');
+
+			let
+				$tips=$('<div>').attr('id','tips_cover').html('&#x21e6;点击继续').addClass('twinkle');
+			$tips.css({
+				'position':'fixed',
+				'left':`${_this.getBoundingClientRect().right+20}px`,
+				'top':`${top+(_this.offsetHeight-$tips[0].offsetHeight)/2-10}px`,
+			});
+ 			setTimeout(()=>{
+ 				$('body').append($tips);
+ 			},666);
 		},
 		'removeHeighLight':function(){
-			let _id=this[0].id;
-			$.each($('style'),function(){
-				if(this.innerHTML.includes(`#${_id}`)) $(this).remove();
-			})
-			$('div.twinkle').remove();
-		},
-		'mark':function(){
-			let _id=this[0].id,
-				cssText=`
-				 		#${_id}:after{display:block;content:'';position:absolute;top:0px;bottom:0px;left:0px;right:0px;background:rgba(0,0,0,.6);}
-					 	`;
-			$('head').append($('<style>').html(cssText));
-		},
-		'removeMark':function(){
-			let _id=this[0].id;
-			$.each($('style'),function(){
-				if(this.innerHTML.includes(`#${_id}`)) $(this).remove();
-			})
+			$('#cover').remove();
+			$('#tips_cover').remove();
+			$('style[data_id="cover"]').remove();
+			$('body').removeClass('of_h');
 		},
 	})
 })(Zepto);

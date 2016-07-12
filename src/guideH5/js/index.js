@@ -55,7 +55,6 @@ require('../css/index.css');
 			},
 			removeMark:function(){
 				$('#heighLight_code2').removeHeighLight();
-				$('#footer_page1').removeMark();
 			},
 			next:function(){
 				self.addClass('hide_dis');
@@ -74,11 +73,6 @@ require('../css/index.css');
 								pageE.showEvent($dialogues.eq(4),()=>{
 									pageE.showEvent($dialogues.eq(5),()=>{
 										$('#heighLight_code2').heighLight();
-										$('#heighLight_code2').find('img').css({
-											'background':'#fff',
-											'border-radius':'6px',
-										});
-										$('#footer_page1').mark();
 										//点击位置初始化
 										$next.css({
 											'left':$('#heighLight_code2').offset().left,

@@ -16,6 +16,7 @@
     "jquery": "^1.11.3",
     "less": "^2.7.1",
     "postcss-loader": "^0.9.1",
+    "postcss-opacity": "^4.0.0",
     "precss": "^1.4.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",

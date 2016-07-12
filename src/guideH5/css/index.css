@@ -24,8 +24,8 @@ body{ font-size:1.4rem;max-width:414px;margin:0 auto; }
 .centerWrap:after{ display:inline-block;content:'centerWrap';width:0;height:100%;vertical-align:middle;overflow:hidden; }
 .page>img{ position:absolute; }
 .page1 .next,.page3 .next,.page5 .next,.page6 .next,.page7 .next,.page8 .next{ position:fixed;z-index:999; }
-.blur{ -webkit-filter: blur(10px);filter: blur(10px);transition:.6s;background:url('../pics/blur.svg') repeat; }
-.twinkle{ font-size:1.6rem;color:#01ff70;animation:2s twinkle infinite; }
+.blur{ filter: blur(10px);transition:.6s;background:url('../pics/blur.svg') repeat; }
+.twinkle{ font-size:1.6rem;color:#01ff70;animation:2s twinkle infinite;z-index:4; }
 @keyframes twinkle{
 	50%{ opacity:0; }
 }

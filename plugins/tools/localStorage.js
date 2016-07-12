@@ -18,7 +18,7 @@ define({
 	},
 	/**
 	 * 设置
-	 * @param {String} key 
+	 * @param {String} key
 	 * @param {String} value
 	 */
 	set:function(_key,_value){

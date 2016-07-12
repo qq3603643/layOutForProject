@@ -341,7 +341,7 @@ define([],()=>{
 			      			for(let key of Object.keys(data)){
 			      				params[params.length]=`${key}=${data[key]}`;
 			      			}
-			      			url += (url.includes('?') ? '&' : '?') + params.join('&');
+			      			url += (url.endsWith('?') ? '&' : '?') + params.join('&');
 			      			data=null;
 		      			}
 		      			xhr.onreadystatechange=()=>{
@@ -351,7 +351,7 @@ define([],()=>{
 		      			if(type=='POST'){
 		      				xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
 		      			}
-		      			xhr.send(data);
+		      			if(data) xhr.send(data);
 		      			function _onStateChange(xhr){
 		      				if(xhr.readyState==4&&xhr.status>=200&&xhr.status<300){
 		      					resolve(xhr.responseText);

@@ -32,6 +32,6 @@ define({
 	 * @param  {String} key
 	 */
 	remove : function(_name){
-		this.set(_name, "", -1);  
+		this.set(_name, "", -1);
 	}
 });

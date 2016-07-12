@@ -11,34 +11,34 @@ require('../css/activity_0707.css');
 
 //商品初始化
 let  tempHtml_itemgoods=`
-			<li class="wrap_center wd_246 dis_ib">
-				<h3 class="dis_ib wrap_center txt_c">
+			<li class="wrap_middle wd_246 dis_ib">
+				<h3 class="dis_ib wrap_middle txt_c">
 					<dl class="fs_24 lh_24"><dt class="yellow dis_ib">{{time_day}}</dt> <dd class="dis_ib white">{{time_hour}}</dd></dl>
 					<span class="white">({{amout_act}})</span>
 				</h3>
 				<div class="item_goods bg_white wd_i">
 					<h2 class="mg_0 icon_limit"></h2>
-					<a class="pic_item dis_b wrap_center txt_c" href="{{link_goods}}" target="_blank"><img src="{{src_goods}}" alt=""></a>
+					<a class="pic_item dis_b wrap_middle txt_c" href="{{link_goods}}" target="_blank"><img src="{{src_goods}}" alt=""></a>
 					<p class="fs_16 txt_of_e"><a href="{{link_goods}}" target="_blank">{{name_goods}}</a></p>
 					<p class="fs_12 txt_of_e">规格：{{rule_goods}}<strong class="red">({{count_limit}})</strong></p>
 					<p class="fs_12 txt_of_e">厂家：{{name_shop}}</p>
 					<p class="fs_20 red keepblank">￥{{price_now}}  <em class="fs_12 c99 txt_dct_lt">￥{{price_old}}</em></p>
 				</div>
-				<div class="btn_group wrap_center bg_white wd_i txt_c pd_b_10 pd_t_10">
+				<div class="btn_group wrap_middle bg_white wd_i txt_c pd_b_10 pd_t_10">
 					<a id="toBuy" class="btn wd_110 fs_16 pd_t_5 pd_b_5 bg_g9" <a href="{{link_goods}}" target="_blank">立即购买</a>
 				</div>
 			</li>
 	 `,
 	 tempHtml_hotgoods=`
-			<li class="wrap_center wd_246 dis_ib">
+			<li class="wrap_middle wd_246 dis_ib">
 				<div class="item_goods bg_white wd_i">
-					<a class="pic_item dis_b wrap_center txt_c" href="{{link_goods}}" target="_blank"><img src="{{src_goods}}" alt=""></a>
+					<a class="pic_item dis_b wrap_middle txt_c" href="{{link_goods}}" target="_blank"><img src="{{src_goods}}" alt=""></a>
 					<p class="fs_16 txt_of_e"><a href="{{link_goods}}" target="_blank">{{name_goods}}</a></p>
 					<p class="fs_12 txt_of_e">规格：{{rule_goods}}</p>
 					<p class="fs_12 txt_of_e">厂家：{{name_shop}}</p>
 					<p class="fs_20 red keepblank">￥{{price_now}}  <em class="fs_12 c99 txt_dct_lt">￥{{price_old}}</em></p>
 				</div>
-				<div class="btn_group wrap_center bg_white wd_i txt_c pd_b_10 pd_t_10">
+				<div class="btn_group wrap_middle bg_white wd_i txt_c pd_b_10 pd_t_10">
 					<a id="toBuy" class="btn wd_110 fs_16 pd_t_5 pd_b_5 bg_g9 btn_active" <a href="{{link_goods}}" target="_blank">立即购买</a>
 				</div>
 			</li>
@@ -231,8 +231,8 @@ let  tempHtml_itemgoods=`
 			'rule_goods':'3g',
 			'price_old':'188.00',
 			'price_now':'160.00',
-			'link_goods':'https://caizhilin01.ypzdw.com/19198/776657',
-			'src_goods':'http://img.800pharm.com/images/20160314/20160314173455_357.jpg',
+			'link_goods':'https://caizhilin01.ypzdw.com/19198/796920',
+			'src_goods':'https://img.alicdn.com/imgextra/i2/825279296/TB2uNOTnVXXXXXGXFXXXXXXXXXX-825279296.jpg',
 		},
 		{
 			'name_goods':'氯沙坦钾片(科素亚)',
