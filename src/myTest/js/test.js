@@ -253,7 +253,7 @@ let upImg_Ajax=((Win,$)=>{
 					});
 				return;
 				}
-//ie
+//ie上传不怎么知道怎么处理..
 				let tempForm=$('<form>').attr({
 					'action':url_submit,
 				}),
@@ -263,7 +263,6 @@ let upImg_Ajax=((Win,$)=>{
 				})
 				$('body').append(tempForm);
 				tempForm.submit();
-				if(typeof callBack_submit=='function') callBack_submit(data);
 			},
 			run({
 				Count_max=5,
@@ -297,7 +296,7 @@ let upImg_Ajax=((Win,$)=>{
 upImg_Ajax.inte({
 	'url':'www.baidu.com',
 	'Count_max':4,
-	'supportTypes':['png','png'],
+	'supportTypes':['png','jpg'],
 	'submitBtn':$('#btn_submitImg'),
 	'selectBtn':$('#btn_selectImg'),
 	'classImgs':'preview',

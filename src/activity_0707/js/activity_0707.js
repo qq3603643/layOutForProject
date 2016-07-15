@@ -25,7 +25,7 @@ let  tempHtml_itemgoods=`
 					<p class="fs_20 red keepblank">￥{{price_now}}  <em class="fs_12 c99 txt_dct_lt">￥{{price_old}}</em></p>
 				</div>
 				<div class="btn_group wrap_middle bg_white wd_i txt_c pd_b_10 pd_t_10">
-					<a id="toBuy" class="btn wd_110 fs_16 pd_t_5 pd_b_5 bg_g9" <a href="{{link_goods}}" target="_blank">立即购买</a>
+					<a id="toBuy" class="btn wd_110 fs_16 pd_t_5 pd_b_5 bg_g9" href="{{link_goods}}" target="_blank">立即购买</a>
 				</div>
 			</li>
 	 `,
@@ -39,7 +39,7 @@ let  tempHtml_itemgoods=`
 					<p class="fs_20 red keepblank">￥{{price_now}}  <em class="fs_12 c99 txt_dct_lt">￥{{price_old}}</em></p>
 				</div>
 				<div class="btn_group wrap_middle bg_white wd_i txt_c pd_b_10 pd_t_10">
-					<a id="toBuy" class="btn wd_110 fs_16 pd_t_5 pd_b_5 bg_g9 btn_active" <a href="{{link_goods}}" target="_blank">立即购买</a>
+					<a id="toBuy" class="btn wd_110 fs_16 pd_t_5 pd_b_5 bg_g9 btn_active" href="{{link_goods}}" target="_blank">立即购买</a>
 				</div>
 			</li>
 	`,
@@ -259,7 +259,6 @@ let  tempHtml_itemgoods=`
 			'price_old':'16.24',
 			'price_now':'6.00',
 			'link_goods':'https://caizhilin01.ypzdw.com/22256/797673',
-			'src_goods':'54',
 			'src_goods':'http://image.qumaiyao.com/images/goods/20150924/small_734746FBCA460A96E529530D3E92E5A3D57D5F.JPG',
 		},
 	];
@@ -299,7 +298,8 @@ let total_hotHtml='';
 
 //初始化商品状态
 const
-	  time_server=Win.time*1000;
+	  time_server=Win.time*1000,
+	  times_delay=10*3600*1000;  //活动从当天的14点到24点
 let times_activity=[
 	   '2016-07-12 14:00:00',
 	   '2016-07-15 14:00:00',
@@ -319,8 +319,13 @@ if(index>0){
 	$.each($('.setion1 ul li'),(i,item)=>{
 		let goods_now=$(item);
 		if(i==index){
-			goods_now.find('.item_goods').addClass('today');
-			goods_now.find('#toBuy').addClass('btn_active');
+			if(time_server-times_activity[i]<times_delay){
+				goods_now.find('.item_goods').addClass('today');
+				goods_now.find('#toBuy').addClass('btn_active');
+			}else{
+				goods_now.find('a').attr('href','javascript:0');
+				goods_now.find('#toBuy').html('活动已结束');
+			}
 		}else{
 			goods_now.find('a').attr('href','javascript:0');
 			if(i>index) goods_now.find('#toBuy').html('即将开抢');
@@ -329,9 +334,6 @@ if(index>0){
 	})
 }else{
 	$('.setion1').find('ul li').find('a').attr('href','javascript:0');
-	$.each($('.setion1').find('ul li'),(i,item)=>{
-		$(item).find('#toBuy').html('即将开抢');
-	})
 }
 
 })(window,jQuery)
