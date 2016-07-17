@@ -14,7 +14,8 @@ module.exports = {
     //            path.resolve(__dirname,'src/guideH5/js/index.js'),
     //           ],
     // 'activity_0707':path.resolve(__dirname,'src/activity_0707/js/activity_0707.js'),
-    'myTest':path.resolve(__dirname,'src/myTest/js/test.js'),
+    // 'myTest':path.resolve(__dirname,'src/myTest/js/test.js'),
+    'autoHeight':path.resolve(__dirname,'src/autoHeight/js/index.js'),
   },
   //出口
   output: {
