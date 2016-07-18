@@ -231,6 +231,8 @@
 /* float */
 .fl_l { float: left; }
 .fl_r { float: right; }
+.fl_c_l { clear: left; }
+.fl_c_r { clear: right; }
 
 /* position */
 .pos_r { position: relative; }

@@ -15,8 +15,8 @@ module.exports = {
     //           ],
     // 'activity_0707':path.resolve(__dirname,'src/activity_0707/js/activity_0707.js'),
     // 'myTest':path.resolve(__dirname,'src/myTest/js/test.js'),
-    'yx':path.resolve(__dirname,'src/yx/js/yx.js'),
     // '14year': path.resolve(__dirname,'src/14year/js/14year.js'),
+    'yx':[path.resolve(__dirname,'src/yx/js/followEach.js'),path.resolve(__dirname,'src/yx/js/yx.js')],
   },
   //出口
   output: {

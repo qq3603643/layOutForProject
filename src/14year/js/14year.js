@@ -42,8 +42,19 @@ require('../css/14year.css');
 		  tempHtml_goodFix=`
 		  			<li class="wd_246 dis_ib vtc_t"></li>
 		  `,
+		  getTimes=(value)=>{
+
+		  		if(!value) return new Date()*1;
+				if(!isNaN(new Date('1970-01-01 08:00:00')*1)) return new Date(value)*1;
+				let
+				    aValue=value.split(/\s+/),
+					[iYear,iMouth,iDay]=aValue[0].split('-'),
+					[iHour,iMin,iSec]=aValue[1].split(':');
+
+				return new Date(iYear,iMouth-1,iDay)-new Date(1970,0,1)+(iSec*1+iMin*60+(iHour-8)*3600)*1000;
+			},
 		  // time_server=new Date()*1;
-		 time_server=Win.time*1000;
+		  time_server=Win.time*1000;
 // boomGoods && hotGoods
   (()=>{
   	//boomGoods
@@ -51,10 +62,7 @@ require('../css/14year.css');
   		  wrap_boomGoods=$('.boomGoods .list_goods'),
   		  act_start='2016-07-21 10:00:00',
   		  startIndex=0,html_boomGoods='',
-  		  isStart=()=>{
-  			if(typeof Win.screenX=='number') return time_server-new Date(act_start)*1>0;
-  			return (new Date(time_server).getDate()==21 && new Date(time_server).getHours()>=10) || (new Date(time_server).getDate()>21) || (new Date(time_server).getMonth()+1>7);
-  		  };
+  		  isStart=()=>time_server-getTimes(act_start)>=0;
 
     if(isStart()) startIndex=Math.min(new Date(time_server).getDate()-21,6)*2;
 
@@ -81,14 +89,12 @@ require('../css/14year.css');
     //不在活动 未开始
 	if(!isStart()){
 		let
-			day_diff=21-new Date(time_server).getDate()-1,
-			hour_diff=10-new Date(time_server).getHours()-1;
+			times_diff=(getTimes(act_start)-time_server)/1000,
+			day_diff=~~(times_diff/(3600*24)),
+			hour_diff=~~(times_diff%(3600*24)/3600);
 
-		if(hour_diff<0){
-			day_diff-=1;hour_diff+=24;
-		}
 		hour_diff=hour_diff<10?'0'+hour_diff:hour_diff+'';
-		time_showEles.eq(0).text(Math.max(0,day_diff));
+		time_showEles.eq(0).text(day_diff);
 		time_showEles.eq(1).text(hour_diff[0]);
 		time_showEles.eq(2).text(hour_diff[1]);
 	}else{
@@ -159,10 +165,7 @@ require('../css/14year.css');
   	let
   		time_start='2016-07-28 00:00:00',
   		time_eles=$('.finallyGoods>h2').find('em'),
-  		isStart=()=>{
-  			if(typeof Win.screenX=='number') return time_server-new Date(time_start)*1>0;
-  			return (new Date(time_server).getDate()>=28) || (new Date(time_server).getMonth()+1>7);
-  		};
+  		isStart=()=>time_server-getTimes(time_start)>=0;
 	//在活动
   	if(isStart()){
   		//进行中
@@ -172,11 +175,12 @@ require('../css/14year.css');
   	}else{
 	//未进行
 		let
-			day_diff=28-new Date(time_server).getDate()-1,
-			hour_diff=24-new Date(time_server).getHours()-1;
+			times_diff=(getTimes(time_start)-time_server)/1000,
+			day_diff=~~(times_diff/(3600*24)),
+			hour_diff=~~(times_diff%(3600*24)/3600);
 
 		hour_diff=hour_diff<10 ? '0'+hour_diff : hour_diff+'';
-  		time_eles.eq(0).text(Math.max(day_diff,0));
+  		time_eles.eq(0).text(day_diff);
 		time_eles.eq(1).text(hour_diff[0]);
 		time_eles.eq(2).text(hour_diff[1]);
 		wrap_finallyGoods.find('.btn').html('即将开抢').removeClass('btn_active');

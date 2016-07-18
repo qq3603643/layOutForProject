@@ -2,11 +2,11 @@
 .bg_red{ background:#e33a3d; }
 
 /* main */
-.setion1{ height:1150px;background:url('../pics/bg_setion1.png') no-repeat center; }
-.setion2{ height:540px;background:url('../pics/bg_setion2.png') no-repeat center; }
+.setion1{ height:1150px;background:url('../pics/bg_setion1.jpg') no-repeat center; }
+.setion2{ height:540px;background:url('../pics/bg_setion2.jpg') no-repeat center; }
 .setion3{ height:1240px;background:url('../pics/bg_setion3.jpg') no-repeat center; }
-.setion4{ height:590px;background:url('../pics/bg_setion4.png') no-repeat center; }
-.setion5{ height:1000px;background:url('../pics/bg_setion5.png') no-repeat center; }
+.setion4{ height:590px;background:url('../pics/bg_setion4.jpg') no-repeat center; }
+.setion5{ height:1000px;background:url('../pics/bg_setion5.jpg') no-repeat center; }
 
 .content{ width:1200px;height:1201px;background:url('../pics/bg_content.png') no-repeat center; }
 .list_goods{ padding-top:166px; }
