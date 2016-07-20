@@ -3,7 +3,7 @@ body{ background:#641089 !important; }
 
 /* global */
 .ht_1800{ height:1800px; }
-.ht_860{ height:860px; }
+.ht_1740{ height:1740px; }
 .ht_618{ height:618px; }
 .ht_110{ height:110px; }
 .ht_252{ height:252px !important; }
@@ -22,20 +22,23 @@ body{ background:#641089 !important; }
 .c99{ color:#999999; }
 .c46{ color:#461901; }
 .bg_orange{ background:#fdce4f; }
+.orange_y{ color:#fce451; }
 .wd_max180{ max-width:180px;height:auto;max-height:100%; }
 .wd_max240{ max-width:240px;height:auto;max-height:100%; }
 .wd_max220{ max-width:220px;height:auto;max-height:100%; }
+.pd_t_68{ padding-top:68px; }
+.pd_t_80{ padding-top:80px; }
 
 /* main */
-.header{ background:url('../pics/bg_header.png') no-repeat center; }
-.boomGoods>h2{ background:url('../pics/bg_boomGoods.png') no-repeat center;padding-left:76px; }
+.header{ background:url('../pics/bg_header.jpg') no-repeat center; }
+.boomGoods>h2{ background:url('../pics/bg_boomGoods.png') no-repeat center;padding-left:514px; }
 .hotGoods>h2{ background:url('../pics/bg_hotGoods.png') no-repeat center; }
-.time{ display:inline-block;width:30px;line-height:38px;background:#e8deea;color:#641089;font-weight:bold;margin:6px;border-radius:1px;text-indent:0; }
+.time{ display:inline-block;width:30px;line-height:36px;background:#e8deea;color:#641089;font-weight:bold;margin:6px;border-radius:1px;text-indent:0; }
 .pic_item{ height:220px;margin-top:10px; }
 .pic_item>img{ max-width:220px;max-height:100%; }
 .item_goods>p{ margin:4px 0;text-indent:26px; }
 
-.finallyGoods>h2{ background:url('../pics/bg_finallyGoods.png') no-repeat center;padding-left:76px; }
+.finallyGoods>h2{ background:url('../pics/bg_finallyGoods.png') no-repeat center;padding-left:514px;}
 .content_fornt{ background:url('../pics/bgContent_finallyGoods.png') no-repeat center; }
 .content_mian>.list{ width:980px;color:#461901;overflow:hidden;margin-bottom:14px; }
 .content_mian .list_setion{ width:748px;height:226px; }
@@ -43,7 +46,7 @@ body{ background:#641089 !important; }
 .content_mian .list_setion .wrap_img{ display:block;height:180px;text-align:center; }
 .content_mian .prize_free{ width:232px;height:226px; }
 .content_mian h2{ line-height:40px;font-size:20px; }
-.content_end{ background:url('../pics/bgEnd_finallyGoods.png') no-repeat center;padding-left:76px; }
+.content_end{ height:940px;background:url('../pics/bgEnd_finallyGoods.png') no-repeat center;padding-left:76px; }
 .list_setion h2{ margin-top:-10px;font-size:14px;line-height:18px;padding:0 10px; }
 .content_point h2{ background:url('../pics/bgTitle_finallyGoods.png') no-repeat center;padding-left:76px; }
 .btn:hover{ color:#fff !important; }

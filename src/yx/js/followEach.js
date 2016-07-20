@@ -16,8 +16,8 @@
 					aTop_follow.push(top_nav);
 					aTop_follow.sort((a,b)=>a-b);
 
-				return Math.max(0,aTop_follow.findIndex(item=>item==top_nav)-1);
-			};
+					return Math.max(0,aTop_follow.findIndex(item=>item==top_nav)-1);
+				};
 			$eles.removeClass(str_class).eq(getIndex()).addClass(str_class);
 
 			$(Win).on('scroll',(()=>{
@@ -44,7 +44,7 @@
 				$('html,body').stop(!0).animate({'scrollTop':_this.eq($(this).index()).offset().top},666,()=>{
 					$(this).addClass(str_class).siblings().removeClass(str_class);
 				})
-			})
+			});
 		}
 	})
 })(window,jQuery)

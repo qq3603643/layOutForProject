@@ -1,1 +1,68 @@
-.preview{ width:180px;height:180px;cursor:pointer; }
+$ht_wrapImg: 166px;
+@define-extend bg_blue{
+	background:rgba(0,0,255,.6);
+}
+
+body{
+	font-family:microsoft yahei;
+}
+#toTop{
+	position:fixed;
+	padding:6px 10px;
+	color:#fff;
+	@extend bg_blue;
+}
+#upImg{
+	padding:10px;
+	margin:@padding;
+	#btn_selectImg{
+		position:absolute;
+		clip:rect(0,0,0,0);
+	}
+	.btn_up{
+		padding:6px 10px;
+		color:#fff;
+		@extend bg_blue;
+		user-select:none;
+		cursor:pointer;
+		border-radius:4px;
+		box-shadow:0 0 2px rgba(0,0,0,.6) inset;
+	}
+	.wrap_seeImg{
+		padding:10px;
+		margin:@padding;
+		margin-left:0;
+		height:$ht_wrapImg;
+		outline:1px solid #ccc;
+		.preview{
+			display:inline-block;
+			max-width:160px;
+			max-height:160px;
+			vertical-align:middle;
+		}
+		&:after{
+			display:inline-block;
+			content:'';
+			height:100%;
+			width:0;
+			overflow:hidden;
+			vertical-align:middle;
+		}
+	}
+	.btn_act{
+		.btn{
+			padding:6px 10px;
+			border:0 none;
+			outline:none;
+			border-radius:4px;
+		}
+	}
+}
+.getBoundClientRect{
+	display:inline-block;
+	padding:6px 10px;
+	border:1px solid #ccc;
+}
+.hide_d{
+	display:none;
+}

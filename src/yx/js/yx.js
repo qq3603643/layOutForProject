@@ -26,7 +26,7 @@ const cart=(()=>{
 		text_tips=[
 			{
 				'isSuccess':'药包加入成功',
-				'suggest':'药包已经放入您的购物车中，请到<a class="blue" href="'+ yjy.config.shop +'/Cart/Default">&#x3c;我的购物车&#x3e;</a>中查看。',
+				'suggest':'药包已经放入您的购物车中，请到<a class="blue" href="'+ yjy.config.shop +'/Cart/Default" target="_blank">&#x3c;我的购物车&#x3e;</a>中查看。',
 			},
 			{
 				'isSuccess':'药包加入失败',
@@ -36,7 +36,7 @@ const cart=(()=>{
 				'isSuccess':'您还没登录额！',
 				'suggest':'<a class="btn" href="'+ yjy.config.pass +'">登录</a>',
 			},
-			'该优选包部分商品超出了您的经营范围,请到<a class="blue" href="' + yjy.config.pur + '/Member/Home/BusinessScope">会员中心&#x3e;我的资料&#x3e;经营范围</a>，进行确认！',
+			'该优选包部分商品超出了您的经营范围,请到<a class="blue" href="' + yjy.config.pur + '/Member/Home/BusinessScope" target="_blank">会员中心&#x3e;我的资料&#x3e;经营范围</a>，进行确认！',
 		],
 		text_btn={
 			'normal':'立即购买',
@@ -155,7 +155,7 @@ const cart=(()=>{
 							setTimeout(()=>{
 								//恢复按钮重置计数器等重置操作
 								$(_this).text(text_btn.normal).addClass('bg_red').data('onff_click',!0).data('count_s',0).data('count_a',0).data('isShowError',!1);
-							},666)
+							},233)
 						}
 					});
 				};
@@ -193,9 +193,9 @@ const cart=(()=>{
 		                    "title": "优选节药包499",
 		                    "salerId": 36055,
 		                    "goods": [
-		                        { "id": 279140, "num": 12 },
+		                        { "id": 279140, "num": 9 },
 		                        { "id": 271220, "num": 12 },
-		                        { "id": 273249, "num": 10 },
+		                        { "id": 273249, "num": 13 },
 		                        { "id": 596989, "num": 5 },
 		                        { "id": 596984, "num": 5 }
 		                    ]
@@ -204,9 +204,9 @@ const cart=(()=>{
 		                    "title": "优选节药包999",
 		                    "salerId": 36055,
 		                    "goods": [
-		                        { "id": 266514, "num": 20 },
-		                        { "id": 528529, "num": 31 },
-		                        { "id": 268419, "num": 20 },
+		                        { "id": 266514, "num": 19 },
+		                        { "id": 528529, "num": 30 },
+		                        { "id": 268419, "num": 22 },
 		                        { "id": 596990, "num": 20 },
 		                        { "id": 596984, "num": 10 }
 		                    ]
@@ -215,10 +215,10 @@ const cart=(()=>{
 		                    "title": "优选节药包1999",
 		                    "salerId": 36055,
 		                    "goods": [
-		                        { "id": 276004, "num": 40 },
-		                        { "id": 272240, "num": 30 },
-		                        { "id": 276563, "num": 44 },
-		                        { "id": 334475, "num": 50 },
+		                        { "id": 276004, "num": 41 },
+		                        { "id": 272240, "num": 35 },
+		                        { "id": 276563, "num": 50 },
+		                        { "id": 334475, "num": 40 },
 		                        { "id": 596984, "num": 30 }
 		                    ]
 		                }
@@ -240,9 +240,9 @@ const cart=(()=>{
 		                    "title": "优选节药包499",
 		                    "salerId": 36055,
 		                    "goods": [
-		                        { "id": 279140, "num": 12 },
+		                        { "id": 279140, "num": 9 },
 		                        { "id": 271220, "num": 12 },
-		                        { "id": 273249, "num": 10 },
+		                        { "id": 273249, "num": 13 },
 		                        { "id": 802728, "num": 5 },
 		                        { "id": 799296, "num": 5 }
 		                    ]
@@ -251,9 +251,9 @@ const cart=(()=>{
 		                    "title": "优选节药包999",
 		                    "salerId": 36055,
 		                    "goods": [
-		                        { "id": 266514, "num": 20 },
-		                        { "id": 528529, "num": 31 },
-		                        { "id": 268419, "num": 20 },
+		                        { "id": 266514, "num": 19 },
+		                        { "id": 528529, "num": 30 },
+		                        { "id": 268419, "num": 22 },
 		                        { "id": 673069, "num": 20 },
 		                        { "id": 799296, "num": 10 }
 		                    ]
@@ -262,10 +262,10 @@ const cart=(()=>{
 		                    "title": "优选节药包1999",
 		                    "salerId": 36055,
 		                    "goods": [
-		                        { "id": 276004, "num": 40 },
-		                        { "id": 272240, "num": 30 },
-		                        { "id": 794913, "num": 44 },
-		                        { "id": 334475, "num": 50 },
+		                        { "id": 276004, "num": 41 },
+		                        { "id": 272240, "num": 35 },
+		                        { "id": 794913, "num": 50 },
+		                        { "id": 334475, "num": 40 },
 		                        { "id": 799296, "num": 30 }
 		                    ]
 		                }
