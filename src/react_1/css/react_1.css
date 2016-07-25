@@ -1,0 +1,10 @@
+.countDown{
+	width:400px;
+	margin-top:66px;
+	em{
+		border-radius:4px;
+		background:#ccc;
+		font-size:18px;
+		line-height:18px;
+	}
+}
