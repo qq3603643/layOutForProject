@@ -1,6 +1,7 @@
 /* global */
 .bg_red{ background:#e33a3d; }
 .btn_group{ width:1200px; }
+.btn:hover{ color:#fff !important; }
 
 /* main */
 .setion1{ height:1150px;background:url('../pics/bg_setion1.jpg') no-repeat center; }
@@ -33,4 +34,3 @@
 .content_tips .btn{ width:110px;font-size:14px;border-radius:15px;background:#fc2050; }
 
 #mark{ position:fixed;left:0;right:0;top:0;bottom:0;filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#99000000', endColorstr='#99000000');background:rgba(0,0,0,0.6);z-index:100; }
-.btn:hover{ color:#fff !important; }

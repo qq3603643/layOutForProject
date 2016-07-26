@@ -5,13 +5,11 @@ require('babel-polyfill');
 
 //css
 require('../css/yaofans.css');
-
 ((Win,$)=>{
 
-let oS=$('<script>').attr('src','https://www.ypzdw.com/common/userInfo?callback=getArea&t='+new Date().getTime());
-$('head').prepend(oS);
+$('head').prepend($('<script>').attr('src','https://www.ypzdw.com/common/userInfo?callback=getArea&t='+new Date().getTime()));
 const hashcode_area={
-	'510100':'sc',
+	'510000':'sc',
 	'340000':'aw',
 	'350000':'fj',
 	'440000':'gd',
@@ -23,10 +21,10 @@ const hashcode_area={
 	},
 	getArea=(data)=>{
 		let
-			areaCode=data.data.areaCode,
+			areaCode=Math.floor((data.data.areaCode)/10000)*10000,
 			value=(areaCode in hashcode_area)?hashcode_area[areaCode]:'hb',
 			src=`../pics/${value}.png`;
-			console.log(`areaCode: ${areaCode};value: ${value};`);
+		(Win.console) && console.log(`areaCode: ${areaCode};value: ${value};`);
 		$('.ft img').attr('src',src);
 	};
 Win.getArea=getArea;
