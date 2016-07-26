@@ -9,15 +9,7 @@ const
 module.exports = {
   //入口
   entry: {
-    // 'guideH5':[path.resolve(__dirname,'plugins/mobile/zepto.min.js'),
-    //            path.resolve(__dirname,'src/guideH5/js/heighLight.js'),
-    //            path.resolve(__dirname,'src/guideH5/js/index.js'),
-    //           ],
-    // 'activity_0707':path.resolve(__dirname,'src/activity_0707/js/activity_0707.js'),
-    // 'myTest':path.resolve(__dirname,'src/myTest/js/test.js'),
-    '14year': path.resolve(__dirname,'src/14year/js/14year.js'),
-    // 'yx':[path.resolve(__dirname,'src/yx/js/followEach.js'),path.resolve(__dirname,'src/yx/js/yx.js')],
-    // 'yaofans':path.resolve(__dirname,'src/yaofans/js/yaofans.js'),
+
   },
   //出口
   output: {
@@ -32,7 +24,7 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         //以下文件不参与js编译
         exclude: [
                   /node_modules/,
@@ -109,7 +101,7 @@ module.exports = {
 }
 
 //动态生成html&&生成项目路径
-for(let key of Object.keys(module.exports.entry)){
+for(var key of Object.keys(module.exports.entry)){
   console.log(`正在生成的项目是${key}...主人请耐心等待呃...`);
   module.exports.plugins.push(
         new HtmlWebpackPlugin({
