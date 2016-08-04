@@ -10,6 +10,15 @@ module.exports = {
   //入口
   entry: {
 
+          // 'yx': [path.resolve(__dirname,'src/yx/js/followEach.js'),path.resolve(__dirname,'src/yx/js/yx.js')],
+          // 'react_1': path.resolve(__dirname,'src/react_1/js/react_1.jsx'),
+          // 'jifen': path.resolve(__dirname,'src/jifen/js/jinfen.jsx'),
+          // 'guideH5': [
+          //             path.resolve(__dirname,'plugins/mobile/zepto.min.js'),
+          //             path.resolve(__dirname,'src/guideH5/js/index.js'),
+          //             path.resolve(__dirname,'src/guideH5/js/heighLight.js')
+          //           ],
+          'reactUI': path.resolve(__dirname,'src/reactUI/js/reactUi.jsx'),
   },
   //出口
   output: {
@@ -35,6 +44,10 @@ module.exports = {
         loaders: ['es3ify-loader',"babel-loader?presets[]=es2015"],
       },
       {
+        test: /\.less$/,
+        loader: 'style-loader!css-loader!postcss-loader!less-loader'
+      },
+      {
         test: /\.css$/,
         //值得注意的是这里的参数似乎是有规定的，第三个参数不能为loader
         loader: ExtractTextPlugin.extract('style-loader','css-loader!postcss-loader'),
@@ -54,7 +67,7 @@ module.exports = {
   //简便设置
   resolve: {
 
-    extensions: ['','.js','.css','.sass','.png','.jpg','.jpeg'],
+    extensions: ['','.js','jsx','.css','.sass','.png','.jpg','.jpeg'],
     alias: {
       //设置一些快捷的路径 在js中require时便于使用
       'plugins': path.join(__dirname,'plugins'),

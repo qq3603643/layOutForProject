@@ -21,7 +21,6 @@ const cart=(()=>{
 		url_addCart          ='/api/price/AddCart',
 		timer_countDown=null,
 		times_checkStatus   =66,
-		id_goods,
 		clickEle_addcart,
 		text_tips=[
 			{
@@ -60,7 +59,7 @@ const cart=(()=>{
 				    </div>
         `,
 		cartE={
-			tracker_addCart(code){
+			tracker_addCart(code,id){
 
 				let
 					pageName      =$("#trackPn").val(),
@@ -72,7 +71,7 @@ const cart=(()=>{
 					jDate_tracker['type']     ='failure';
 					jDate_tracker['failCode'] =code;
 				}
-				jDate_tracker["goodsid"]=id_goods;
+				jDate_tracker["goodsid"]=id;
 				tracker.trace("click_addCart_"+pageName, jDate_tracker);
 			},
 			showTips(index){
@@ -136,7 +135,6 @@ const cart=(()=>{
 						'data':{ id,num, },
 						'beforeSend': function(){
 							$(_this).text(text_btn.adding).removeClass('bg_red');
-							id_goods=id;
 						},
 						'success':function(data){
 
@@ -144,7 +142,7 @@ const cart=(()=>{
 
 							if(data['result']==7) $(_this).data('count_s',count_s+=1);
 							if(data['result']==8 || data['result']==9) $(_this).data('isShowError',!0);
-							cartE.tracker_addCart(data['result']+='');
+							cartE.tracker_addCart(data['result']+='',id);
 						},
 					}).always((data)=>{
 

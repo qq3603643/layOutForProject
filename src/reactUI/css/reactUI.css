@@ -1,0 +1,43 @@
+body{
+	width: 100vw;
+	overflow-x: hidden;
+}
+.login{
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	.hd{
+		padding: 10px 4px;
+		font-size: 24px;
+	}
+	.bd{
+		padding:6px;
+		dl{
+			margin-bottom: 4px;
+			dd,dt{
+				display: inline-block;
+			}
+			dt{
+				width: 80px;
+				text-align: right;
+			}
+			dd{
+				width: calc(100% - 100px);
+			}
+		}
+	}
+	.ft{
+		text-indent: 16px;
+	}
+	.btn_group{
+		margin: 4px 0;
+		padding-right: 10px;
+		text-align: right;
+	}
+}
+
+.formMine{
+	width: 400px;
+}

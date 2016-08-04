@@ -1,3 +1,4 @@
+body{ width:100vw;overflow-x:hidden; }
 .countDown{
 	width:400px;
 	margin-top:66px;
@@ -7,4 +8,83 @@
 		font-size:18px;
 		line-height:18px;
 	}
+}
+.setion4{
+	.container{
+		width:366px;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	.list_control{
+		width:366px;
+		border:1px solid #ccc;
+		overflow:hidden;
+		.item_control{
+			float:left;
+			width:122px;
+			font-size:14px;
+			line-height:24px;
+			text-align:center;
+			cursor:pointer;
+			user-select:none;
+		}
+		li.active{
+			color:#fff;
+			background:#f00;
+		}
+	}
+	.list_show{
+		width:368px;
+		overflow:hidden;
+		.item_show{
+			display:none;
+			box-sizing:border-box;
+			float:left;
+			width:100%;
+			border:1px solid #ccc;
+			border-top:none;
+			line-height:200px;
+			text-align:center;
+		}
+		li.active{
+			display:block;
+		}
+	}
+}
+
+.list{
+	width:400px;
+	margin: 40px;
+	padding: 10px;
+	line-height:24px;
+	li{
+		display:inline-block;
+		margin-bottom:10px;
+		border-left:2px solid #ccc;
+		padding:0 10px;
+	}
+}
+
+/* react动画类 */
+.example-enter {
+	opacity: 0.01;
+	transform:translateX(30px);
+	transition: all .5s ease-out;
+}
+
+.example-enter-active {
+	opacity:1;
+	transform:translateX(0);
+}
+
+.example-leave{
+	border:0 none;
+	transform:scale(1);
+	opacity:1;
+	transition: all .5s ease-out;
+}
+
+.example-leave-active {
+	transform:scale(3);
+	opacity:0;
 }
