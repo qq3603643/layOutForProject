@@ -10,7 +10,7 @@ module.exports = {
   //入口
   entry: {
 
-          // 'yx': [path.resolve(__dirname,'src/yx/js/followEach.js'),path.resolve(__dirname,'src/yx/js/yx.js')],
+          // 'yx': [path.resolve(__dirname,'src/yx/js/yx.js')],
           // 'react_1': path.resolve(__dirname,'src/react_1/js/react_1.jsx'),
           // 'jifen': path.resolve(__dirname,'src/jifen/js/jinfen.jsx'),
           // 'guideH5': [
@@ -18,7 +18,12 @@ module.exports = {
           //             path.resolve(__dirname,'src/guideH5/js/index.js'),
           //             path.resolve(__dirname,'src/guideH5/js/heighLight.js')
           //           ],
-          'reactUI': path.resolve(__dirname,'src/reactUI/js/reactUi.jsx'),
+          // 'reactUI': path.resolve(__dirname,'src/reactUI/js/reactUi.jsx'),
+          // 'yx2': path.resolve(__dirname,'src/yx2/js/yx2.js')
+          // 'activity_0707': path.resolve(__dirname,'src/activity_0707/js/activity_0707.js')
+          // 'alertY': path.resolve(__dirname,'src/alertY/js/alertY.js'),
+          // 'yx3': path.resolve(__dirname,'src/yx3/js/yx3.js')
+          'myPluginsTest': path.resolve(__dirname, 'src/myPluginsTest/js/myPluginsTest.js'),
   },
   //出口
   output: {
@@ -50,6 +55,7 @@ module.exports = {
       {
         test: /\.css$/,
         //值得注意的是这里的参数似乎是有规定的，第三个参数不能为loader
+        // loader: 'style-loader!css-loader!postcss-loader',
         loader: ExtractTextPlugin.extract('style-loader','css-loader!postcss-loader'),
       },
       {

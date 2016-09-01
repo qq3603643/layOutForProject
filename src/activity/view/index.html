@@ -55,15 +55,17 @@
 <script type="text/javascript">
 	CreateListGood.inteWithLimit({
 		//活动时间(这里默认设置 ||每天|| 的n点开始)
-		'time_start':'2016-08-04 00:00:00',
-		'time_end':'2016-08-13 23:59:59',
+		'time_start':'2016-08-06 00:00:00',
+		'time_end':'2016-08-15 23:59:59',
 		'data':window.dataGoodsList,
 		//每天更新的商品个数
 		'amount_oneDay':0.5,
 		//列表容器
 		'container_list':$('.setion1 .listGoods'),
 		//是否限购(默认是有限购的)
-		'isCountLimit':true
+		'isCountLimit':true,
+		//默认不到时间不能点击按钮
+		'isBtnLimit':true
 	});
 	CreateListGood.inteNoLimit({
 		'data':window.dataGoodsList2,

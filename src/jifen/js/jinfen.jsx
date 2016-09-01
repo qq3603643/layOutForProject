@@ -24,7 +24,7 @@ define(['react','react-dom'],(React,ReactDOM)=>{
 
 	const
 		infoForCountBox={
-			'time_dev':window.time*1000 || new Date()*1 - new Date(),
+			'time_dev':(window.time*1000 || new Date()*1) - new Date()*1,
 			'txt_status':{
 				'looking': '离开抢还有',
 				'doing': '活动进行中',

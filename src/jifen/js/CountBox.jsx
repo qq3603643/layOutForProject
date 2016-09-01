@@ -80,7 +80,6 @@ define(['react'],(React)=>{
 		};
 		componentDidMount(){
 
-			this.timeChange();
 			if(this.state.isLooking)
 				setInterval(()=>{
 					this.timeChange();

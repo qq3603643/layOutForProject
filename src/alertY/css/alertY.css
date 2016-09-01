@@ -1,0 +1,33 @@
+#alert-Y-mark{
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: 9999;
+	background-color: rgba(0,0,0,.5);
+	filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#7F000000', endColorstr='#7F000000');
+	.alert-Y-content{
+		position: absolute;
+		width: 495px;
+		height: 360px;
+		left: 50%;
+		top: 50%;
+		margin-left: -247px;
+		margin-top: -180px;
+		background: url('../pics/bg_content.png') no-repeat center;
+		.alert-Y-close{
+			position: absolute;
+			top: 16px;
+			right: 16px;
+			width: 19px;
+			height: 15px;
+			background: url('../pics/close-Y.png') no-repeat center;
+			cursor: pointer;
+			&:hover{
+				transition: .2s;
+				transform: scale(1.2);
+			}
+		}
+	}
+}

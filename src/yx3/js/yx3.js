@@ -6,13 +6,10 @@ require('babel-polyfill');
 //css
 require('plugins/css/reset.css');
 require('plugins/css/tangerine.css');
-require('../css/yx.css');
+require('../css/yx3.css');
 
 (function(Win,$){
 //引入js
-require('./followEach.js');
-require('plugins/mine/clickSpecial.js');
-
 const
 	  tracker=require('tools/tracker.js'),
 	  yjy=require('tools/config.js');
@@ -21,9 +18,10 @@ const
 const cart=(()=>{
 
 	let
-		url_addCart          ='/api/price/AddCart',
-		timer_countDown=null,
-		times_checkStatus   =66,
+		url_addCart       ='/api/price/AddCart',
+		timer_countDown   =null,
+		times_checkStatus =66,
+		COUNT_BAG         =2, //药包的商品个数
 		clickEle_addcart,
 		text_tips=[
 			{
@@ -121,8 +119,8 @@ const cart=(()=>{
 					let count_a=$(_this).data('count_a'),
 						count_s=$(_this).data('count_s');
 
-					if(count_a==5){
-						cartE.callback_addCart.call(_this,count_s==5);
+					if(count_a==COUNT_BAG){
+						cartE.callback_addCart.call(_this,count_s==COUNT_BAG);
 						if(Win.console) console.log(`成功加入的数量为: ${count_s};失败加入的数量为: ${count_a-count_s}`);
 						clearInterval(this.timer_checkStatus);
 					}
@@ -152,7 +150,7 @@ const cart=(()=>{
 						let count_a=$(_this).data('count_a');
 
 						$(_this).data('count_a',count_a+=1);
-						if(count_a==5){
+						if(count_a==COUNT_BAG){
 							setTimeout(()=>{
 								//恢复按钮重置计数器等重置操作
 								$(_this).text(text_btn.normal).addClass('bg_red').data('onff_click',!0).data('count_s',0).data('count_a',0).data('isShowError',!1);
@@ -176,105 +174,9 @@ const cart=(()=>{
 				if(!cartE.userCheck()) return;
 				if(!$(_this).data('onff_click')) return;
 
-				let data,host=Win.location.host;
-		        if (host.includes('info')) {
-		            data = [
-		                {
-		                    "title": "优选节药包99",
-		                    "salerId": 36055,
-		                    "goods": [
-		                        { "id": 273686, "num": 2 },
-		                        { "id": 276004, "num": 3 },
-		                        { "id": 266598, "num": 3 },
-		                        { "id": 271220, "num": 2 },
-		                        { "id": 596984, "num": 1 }
-		                    ]
-		                },
-		                {
-		                    "title": "优选节药包499",
-		                    "salerId": 36055,
-		                    "goods": [
-		                        { "id": 279140, "num": 9 },
-		                        { "id": 271220, "num": 12 },
-		                        { "id": 273249, "num": 13 },
-		                        { "id": 596989, "num": 5 },
-		                        { "id": 596984, "num": 5 }
-		                    ]
-		                },
-		                {
-		                    "title": "优选节药包999",
-		                    "salerId": 36055,
-		                    "goods": [
-		                        { "id": 266514, "num": 19 },
-		                        { "id": 528529, "num": 30 },
-		                        { "id": 268419, "num": 22 },
-		                        { "id": 596990, "num": 20 },
-		                        { "id": 596984, "num": 10 }
-		                    ]
-		                },
-		                {
-		                    "title": "优选节药包1999",
-		                    "salerId": 36055,
-		                    "goods": [
-		                        { "id": 276004, "num": 41 },
-		                        { "id": 272240, "num": 35 },
-		                        { "id": 276563, "num": 50 },
-		                        { "id": 334475, "num": 40 },
-		                        { "id": 596984, "num": 30 }
-		                    ]
-		                }
-		            ];
-		        } else {
-		            data = [
-		                {
-		                    "title": "优选节药包99",
-		                    "salerId": 36055,
-		                    "goods": [
-		                        { "id": 273686, "num": 2 },
-		                        { "id": 276004, "num": 3 },
-		                        { "id": 266598, "num": 3 },
-		                        { "id": 271220, "num": 2 },
-		                        { "id": 799296, "num": 1 }
-		                    ]
-		                },
-		                {
-		                    "title": "优选节药包499",
-		                    "salerId": 36055,
-		                    "goods": [
-		                        { "id": 279140, "num": 9 },
-		                        { "id": 271220, "num": 12 },
-		                        { "id": 273249, "num": 13 },
-		                        { "id": 802728, "num": 5 },
-		                        { "id": 799296, "num": 5 }
-		                    ]
-		                },
-		                {
-		                    "title": "优选节药包999",
-		                    "salerId": 36055,
-		                    "goods": [
-		                        { "id": 266514, "num": 19 },
-		                        { "id": 528529, "num": 30 },
-		                        { "id": 268419, "num": 22 },
-		                        { "id": 673069, "num": 20 },
-		                        { "id": 799296, "num": 10 }
-		                    ]
-		                },
-		                {
-		                    "title": "优选节药包1999",
-		                    "salerId": 36055,
-		                    "goods": [
-		                        { "id": 276004, "num": 41 },
-		                        { "id": 272240, "num": 35 },
-		                        { "id": 794913, "num": 50 },
-		                        { "id": 334475, "num": 40 },
-		                        { "id": 799296, "num": 30 }
-		                    ]
-		                }
-		            ];
-		        };
-
-		        let
-					index_btn =$(_this).closest('.item_goods').index(),
+				let
+		       		data=require('./data.js').data,
+					index_btn =$(_this).closest('.itemBag').index(),
 					goods     =data[index_btn]['goods'];
 				$(_this).data('onff_click',!1);
 			    for(let item of goods)
@@ -299,13 +201,6 @@ const cart=(()=>{
 		inte:cartE.run,
 	};
 })();
-cart.inte($('.goBuy'));
-
-//nav导航
-$('.setion').followEach($('.item_toGo'),'bg_red');
-$('#toTop').on('click',()=>{ $('html,body').stop(!0).animate({
-	'scrollTop':0
-},666) })
-$('.item_toGo').clickSpecial();
+cart.inte($('.itemBag .btn'));
 
 })(window,jQuery)

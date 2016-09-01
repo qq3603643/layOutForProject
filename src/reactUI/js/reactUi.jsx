@@ -37,6 +37,7 @@ define(['react','react-dom',],(React,ReactDOM)=>{
     			<form className="formMine">
     				<FormControl type="text" min={ 2 } max={ 4 } grid={ {width:8/10,offset:2/10,} }/>
     				<FormControl type="checkbox" text="setion" />
+    				<FormControl type="date" />
     				<FormControl type="checkbox-group"
     							 data={[
     							 		  { "id": "nanjing", "text": "南京" },

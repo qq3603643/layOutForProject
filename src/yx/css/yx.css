@@ -24,6 +24,7 @@
 #toTop{ height:30px; }
 #toTop>span{ width:0;left:0;background:#eb645a;line-height:30px;color:#ccc; }
 #toTop:hover span.tips_toTop{ transition:all .4s;width:80px;left:-80px; }
+
 #tips{ width:500px;height:300px;top:50%;left:50%;margin-left:-250px;margin-top:-150px;z-index:99;background:#fff; }
 #tips>h2{ line-height:52px; }
 #tips .title{ margin-left:28px; }

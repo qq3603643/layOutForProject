@@ -20,6 +20,7 @@ body{ background:#ffcabc !important; }
 .ht_106{ height:106px; }
 .ht_99{ height:99px; }
 .c99{ color:#999999; }
+.btn{ border:0 none;line-height:1.4; }
 .btn_active{ background:#e95853; }
 .btn:hover{ color: #fff !important; }
 

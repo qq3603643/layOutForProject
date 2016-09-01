@@ -5,6 +5,7 @@
 			timeStart,timeEnd,$ListWrap,
 			numOneDay,//每天更新的个数
 			arrGoods,isLimitCount=!0,
+			isLimitBtn=!0,
 			txt_btn={
 				'isLooking':'即将开抢',
 				'isDoing':'立即购买',
@@ -26,6 +27,7 @@
 					' </li> '].join(''),
 			html_itemGoodsNoCountLimit=html_itemGoods.replace('<strong class="red">(限购{{count_limit}})</strong>',''),
 			tempHtml_goodFix=' <li class="item_wrap_fix"></li> ',
+			preventLink='javascript:;',
 		actE={
 
 			getTimes:function(value){
@@ -57,7 +59,7 @@
 			},
 			layOut:function(){
 
-				var html='',txtBtn='',classBtn='',classToday='',
+				var html='',txtBtn='',classBtn='',classToday='',isPreventLink=!1,
 					startHour=timeStart.split(/[^0-9]+/)[3],
 					index_start=~~(actE.getIndex()*numOneDay),
 					index_end=(index_start+numOneDay);
@@ -67,12 +69,14 @@
 						txtBtn=txt_btn.isEnd;
 						classBtn='bg_gray';
 						classToday='';
+						isPreventLink=!0;
 					}
 					//looking
 					if(index>=index_end){
 						txtBtn=txt_btn.isLooking;
 						classBtn='bg_gray';
 						classToday='';
+						isPreventLink=!0;
 					}
 					//doing&&end
 					if(index>=index_start && index<index_end){
@@ -80,11 +84,13 @@
 							txtBtn=txt_btn.isEnd;
 							classBtn='bg_gray';
 							classToday='';
+							isPreventLink=!0;
 						}
 						if(new Date(time_now).getHours()>=startHour){
 							txtBtn=txt_btn.isDoing;
 							classBtn='bg_active';
 							classToday='today';
+							isPreventLink=!1;
 						}
 					}
 
@@ -94,7 +100,10 @@
 									 .replace(/\{\{rule_goods\}\}/,item.rule_goods)
 									 .replace(/\{\{price_old\}\}/,item.price_now ? item.price_old : '')
 									 .replace(/\{\{price_now\}\}/,item.price_now ? item.price_now : item.price_old)
-									 .replace(/\{\{link_goods\}\}/g,item.link_goods)
+									 .replace(/\{\{link_goods\}\}/g,
+									 	(isLimitBtn&&isPreventLink) ? preventLink : item.link_goods
+									 	// item.link_goods
+									 	)
 									 .replace(/\{\{src_goods\}\}/,item.src_goods)
 									 .replace(/\{\{count_limit\}\}/,item.count_limit)
 									 .replace(/\{\{today\}\}/,classToday)
@@ -112,6 +121,7 @@
 				numOneDay=obj.amount_oneDay;
 				$ListWrap=obj.container_list;
 				isLimitCount=obj.isCountLimit;
+				isLimitBtn=obj.isBtnLimit;
 			},
 			run:function(obj){
 
