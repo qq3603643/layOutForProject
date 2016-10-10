@@ -1,5 +1,7 @@
 define(['react'],(React)=>{
 
+	const time_dev = (window.time*1000 || new Date()*1) - new Date()*1;
+
 	class CountBox extends React.Component{
 
 		constructor(props) {
@@ -9,7 +11,6 @@ define(['react'],(React)=>{
 		  	'isLooking':!1,
 		  	'isDoing':!1,
 		  	'isOut':!1,
-		  	'time_dev':this.props.time_dev,
 		  	'hour_dif':'00',
 		  	'min_dif':'00',
 		  	'sec_dif':'00',
@@ -18,7 +19,7 @@ define(['react'],(React)=>{
 		};
 		componentWillMount(){
 
-			let nowHour=new Date(new Date()*1+this.state.time_dev).getHours();
+			let nowHour=new Date(new Date()*1+time_dev).getHours();
 
 			if(nowHour<10)
 				this.setState({
@@ -53,7 +54,7 @@ define(['react'],(React)=>{
 		timeChange(){
 
 			let
-				time_now    =new Date()*1 + this.state.time_dev,
+				time_now    =new Date()*1 + time_dev,
 				time_d      =new Date(time_now),
 				time_year   =time_d.getFullYear(),
 				time_mon    =time_d.getMonth()+1,

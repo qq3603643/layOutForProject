@@ -20,11 +20,13 @@
 			this.on('click',function(e){
 
 				var $self = $(this);
-				if($self.find('.maskForSpecialClick').size()==0){
+				if($self.find('.maskForSpecialClick').size()==0)
+				{
 					if($self.css('position')=='static') $self.css('position','relative');
-					$self.css('overflow','hidden').append($('<i>').addClass('maskForSpecialClick'));
+					$self.css('overflow','hidden').append($('<i>',{ class: 'maskForSpecialClick' }));
 
-					if($('style[class="clickSpecialStyle"]').size()==0){
+					if($('style[class="clickSpecialStyle"]').size()==0)
+					{
 						var $inteSize = Math.max(this.clientWidth,this.clientHeight)*2.2,
 							$style = $('<style class="clickSpecialStyle">').html('.maskForSpecialClick{ position: absolute;width: '+ $inteSize +'px;height: '+ $inteSize +'px;border-radius: 50%;background: rgba(0,0,0,.4);opacity: 0; }.maskForSpecialClick.scale{ transform: scale(0);opacity: 1; }');
 						$('head').append($style);
@@ -36,14 +38,16 @@
 						'transition':'0s'
 					}).addClass('scale');
 
-				var pos = this.getBoundingClientRect(),
-					left = pos.left,
-					top = pos.top,
-					eX = e.clientX,
-					eY = e.clientY;
-				var iLeft = eX - left - $mask.get(0).clientWidth/2,
-					iTop = eY - top - $mask.get(0).clientHeight/2;
-				var timer = null;
+				var
+					pos   = this.getBoundingClientRect(),
+					left  = pos.left,
+					top   = pos.top,
+					eX    = e.clientX,
+					eY    = e.clientY,
+
+					iLeft = eX - left - $mask.get(0).clientWidth/2,
+					iTop  = eY - top - $mask.get(0).clientHeight/2,
+					timer = null;
 
 				$mask.css({
 					'left': iLeft + 'px',

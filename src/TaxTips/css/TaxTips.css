@@ -1,0 +1,76 @@
+#maskForTax{
+	font: 14px/1.42858 'microsoft yahei';
+	position: fixed;
+	top: 0;bottom: 0;left: 0;right: 0;
+	z-index: 99990;
+	background: rgba(0, 0, 0, .5);
+	filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#7F000000', endColorstr='#7F000000');background:rgba(0,0,0,0.5);
+	.content{
+		&.scaleHide{
+			opacity: 0;
+			transform: scale(0.8);
+		}
+		position: absolute;
+		top: 0;bottom: 0;left: 0;right: 0;
+		margin: auto;
+		width: 448px;height: 210px;
+		background: #fff;
+		opacity: .99;
+		border-radius: 10px;
+		box-shadow: 0 1px 1px rgba(255, 255, 255, 1.0), 0 0 1px rgba(0, 0, 0, .6) inset;
+		transition: .4s cubic-bezier(0.360, 1.425, 0.800, 1.005);
+		.taxLogo{
+			position: absolute;
+			top: -96px;left: 78px;
+			display: block;
+			content: '';
+			width: 262px;height: 136px;
+			background: url('../pics/taxLogo.png') no-repeat center;
+			cursor: pointer;
+			z-index: 99999;
+		}
+		.close{
+			position: absolute;
+			top: 16px;right: 16px;
+			display: block;
+			width: 15px;height: 15px;
+			background: url('../pics/taxClose.png') no-repeat center;
+			opacity: 1;
+			cursor: pointer;
+			&:hover{
+				opacity: .5;
+			}
+		}
+		.inner{
+			padding-top: 60px;
+			.wordsTips{
+				margin: 18px 0;
+				line-height: 40px;
+				color: #848484;
+				font-size: 18px;
+				text-align: center;
+			}
+			.btn_group{
+				height: 75px;
+				text-align: center;
+				vertical-align: middle;
+				.btn{
+					display: inline-block;
+					width: 220px;
+					padding: 0;
+					margin-top: 10px;
+					line-height: 40px;
+					color: #fff;
+					font-size: 18px;
+					text-decoration: none;
+					background-color: #138df8;
+					border: 0 none;
+					border-radius: 20px;
+					&:hover{
+						background-image: linear-gradient(rgba(0, 0, 0, .2) 0%, rgba(0, 0, 0, .2) 100%) !important;
+					}
+				}
+			}
+		}
+	}
+}

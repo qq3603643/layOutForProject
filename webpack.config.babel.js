@@ -9,8 +9,7 @@ const
 module.exports = {
   //入口
   entry: {
-
-          // 'yx': [path.resolve(__dirname,'src/yx/js/yx.js')],
+          'yx': [path.resolve(__dirname,'src/yx/js/yx.js')],
           // 'react_1': path.resolve(__dirname,'src/react_1/js/react_1.jsx'),
           // 'jifen': path.resolve(__dirname,'src/jifen/js/jinfen.jsx'),
           // 'guideH5': [
@@ -23,7 +22,9 @@ module.exports = {
           // 'activity_0707': path.resolve(__dirname,'src/activity_0707/js/activity_0707.js')
           // 'alertY': path.resolve(__dirname,'src/alertY/js/alertY.js'),
           // 'yx3': path.resolve(__dirname,'src/yx3/js/yx3.js')
-          'myPluginsTest': path.resolve(__dirname, 'src/myPluginsTest/js/myPluginsTest.js'),
+          // 'myPluginsTest': path.resolve(__dirname, 'src/myPluginsTest/js/myPluginsTest.js'),
+          // 'yx4': path.resolve(__dirname, 'src/yx4/js/yx4.js')
+          // 'TaxTips': path.resolve(__dirname, 'src/TaxTips/js/TaxTips.js')
   },
   //出口
   output: {
