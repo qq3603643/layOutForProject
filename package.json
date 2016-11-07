@@ -32,6 +32,7 @@
     "react-addons": "^0.9.1-deprecated",
     "react-dom": "^0.14.2",
     "style-loader": "~0.13.0",
+    "underscore": "^1.8.3",
     "url-loader": "~0.5.7",
     "webpack": "~1.12.14",
     "webpack-dev-server": "^1.14.1"
@@ -55,6 +56,6 @@
   },
   "scripts": {
     "webpack": "webpack --display-error-details",
-    "server": "webpack-dev-server --hot --inline"
+    "service": "webpack-dev-server --hot --inline"
   }
 }

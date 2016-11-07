@@ -173,7 +173,7 @@ const cart=(()=>{
 			addCartEvent(){
 
 				let _this=this;
-				COUNT_BAG = $(this).closest('.listBag').attr('data-countBag');
+				COUNT_BAG = $(this).closest('.itemBag').attr('data-countBag') || $(this).closest('.listBag').attr('data-countBag');
 				// console.log(COUNT_BAG);
 				if(!cartE.userCheck()) return;
 				if(!$(_this).data('onff_click')) return;

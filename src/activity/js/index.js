@@ -6,6 +6,7 @@
 			numOneDay,//每天更新的个数
 			arrGoods,isLimitCount=!0,
 			isLimitBtn=!0,
+			isWithDay=!1,
 			txt_btn={
 				'isLooking':'即将开抢',
 				'isDoing':'立即购买',
@@ -13,7 +14,7 @@
 			},
 			time_now=Win.time*1000||new Date()*1,
 			html_itemGoods=[
-					' <li class="item_wrap {{today}}">',
+					' <li class="item_wrap {{hasDay}} {{today}}" data-day="{{dataDay}}">',
 						'<div class="item_goods">',
 							'<a href="{{link_goods}}" class="pic_item" target="_blank"><img src="{{src_goods}}_220x220" alt=""></a>',
 							'<p class="fs_16 txt_of_e"><a href="{{link_goods}}" target="_blank">{{name_goods}}</a></p>',
@@ -38,6 +39,15 @@
 					a[0],a[1]-1,a[2],
 					a[3],a[4],a[5]
 					)*1;
+			},
+			formatTimes:function(times)
+			{
+				var _t = new Date(times),
+					_y = _t.getFullYear(),
+					_m = _t.getMonth() + 1,
+					_d = _t.getDate();
+
+				return [_y, _m, _d].join('-');
 			},
 			isStart:function(){
 
@@ -94,6 +104,8 @@
 						}
 					}
 
+					var dataDay = actE.formatTimes(actE.getTimes(timeStart) + 1/numOneDay * 24 * 60 * 60 *1e3 * index);
+
 					html+=(isLimitCount ? html_itemGoods : html_itemGoodsNoCountLimit)
 									 .replace(/\{\{name_goods\}\}/,item.name_goods)
 									 .replace(/\{\{name_shop\}\}/,item.name_shop)
@@ -108,7 +120,9 @@
 									 .replace(/\{\{count_limit\}\}/,item.count_limit)
 									 .replace(/\{\{today\}\}/,classToday)
 									 .replace(/\{\{classBtn\}\}/,classBtn)
-									 .replace(/\{\{txtBtn\}\}/,txtBtn);
+									 .replace(/\{\{txtBtn\}\}/,txtBtn)
+									 .replace(/\{\{hasDay\}\}/,isWithDay ? 'hasDay' : '')
+									 .replace(/\{\{dataDay\}\}/,dataDay);
 				})
 
 				$ListWrap.html(html+=new Array(5).join(tempHtml_goodFix));
@@ -122,6 +136,7 @@
 				$ListWrap=obj.container_list;
 				isLimitCount=obj.isCountLimit;
 				isLimitBtn=obj.isBtnLimit;
+				isWithDay=obj.isHasDay;
 			},
 			run:function(obj){
 
@@ -133,6 +148,7 @@
 				arrGoods=obj.data;
 				$ListWrap=obj.container_list;
 				isLimitCount=obj.isCountLimit;
+				isWithDay = obj.isHasDay;
 				var html='',classBtn='bg_active',
 				    classToday='',txtBtn=txt_btn.isDoing;
 				$.each(arrGoods,function(index,item){
@@ -146,7 +162,8 @@
 									 .replace(/\{\{src_goods\}\}/,item.src_goods)
 									 .replace(/\{\{today\}\}/,classToday)
 									 .replace(/\{\{classBtn\}\}/,classBtn)
-									 .replace(/\{\{txtBtn\}\}/,txtBtn);
+									 .replace(/\{\{txtBtn\}\}/,txtBtn)
+									 .replace(/\{\{dataDay\}\}/, '2016-08-15');
 				});
 
 				$ListWrap.html(html+=new Array(5).join(tempHtml_goodFix));
@@ -157,4 +174,5 @@
 			inteWithLimit:actE.run,
 			inteNoLimit:actE.run2
 		};
+
 	})(window);

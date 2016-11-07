@@ -99,6 +99,28 @@
 			}
 		}
 	}
+	.setion5{
+		.hd{
+			background: url('../pics/bg_hdSt5.jpg') no-repeat center;
+		}
+		.bd{
+			background: url('../pics/bg_bdSt5.png') no-repeat center top;
+		}
+		.ft{
+			background: url('../pics/bg_ftSt5.jpg') no-repeat center;
+		}
+	}
+	.setion6{
+		.hd{
+			background: url('../pics/bg_hdSt6.jpg') no-repeat center;
+		}
+		.bd{
+			background: url('../pics/bg_bdSt6.png') no-repeat center top;
+		}
+		.ft{
+			background: url('../pics/bg_ftSt6.jpg') no-repeat center;
+		}
+	}
 }
 
 /* tips */
@@ -114,11 +136,12 @@
 .btn:hover{ color: #fff !important; }
 
 /* nav */
-.nav{ width:45px;height:290px;right:20px;top:200px;background:url('../pics/bg_nav.png') no-repeat center; }
+.nav{ width:45px;height:371px;right:20px;top:200px;background:url('../pics/bg_nav.png') no-repeat center; }
 .list_toGo{ padding-top:100px;overflow: hidden; }
 .item_toGo{ width:45px;height: 38px;margin-bottom: 2px;line-height:40px;font-size:14px;color:#fff;cursor:pointer;user-select:none; }
 .item_toGo.bg_red{ background: #e33a3d; }
+.item_toGo.twoLine{ line-height:14px;height: 34px;padding-top: 4px; }
 .item_toGo:hover{ transition:all .2s;transform:scale(1.05); }
 #toTop{ height:30px; }
-#toTop .tips_toTop{ width:0;left:0;background:#eb645a;line-height:30px;color:#ccc; }
+#toTop .tips_toTop{ width:0;left:0;background:#eb645a;line-height:31px;color:#ccc; }
 :root #toTop:hover .tips_toTop{ transition:all .4s;width: 80px;left: -80px; }

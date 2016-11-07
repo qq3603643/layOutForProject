@@ -17,7 +17,7 @@
 
 <!-- setion1 -->
 <div class="setion setion1">
-	<div class="hd">
+	<!-- <div class="hd">
 		<ul class="listDate">
 			<li class="itemDate">8月4号-8月5号</li>
 			<li class="itemDate">8月6号-8月7号</li>
@@ -25,7 +25,7 @@
 			<li class="itemDate">8月10号-8月11号</li>
 			<li class="itemDate">8月12号-8月13号</li>
 		</ul>
-	</div>
+	</div> -->
 	<div class="bd listWrap">
 		<ul class="listGoods"></ul>
 	</div>
@@ -59,13 +59,15 @@
 		'time_end':'2016-08-15 23:59:59',
 		'data':window.dataGoodsList,
 		//每天更新的商品个数
-		'amount_oneDay':0.5,
+		'amount_oneDay':1,
 		//列表容器
 		'container_list':$('.setion1 .listGoods'),
 		//是否限购(默认是有限购的)
 		'isCountLimit':true,
 		//默认不到时间不能点击按钮
-		'isBtnLimit':true
+		'isBtnLimit':true,
+		//是否头部带有日期
+		'isHasDay': true
 	});
 	CreateListGood.inteNoLimit({
 		'data':window.dataGoodsList2,

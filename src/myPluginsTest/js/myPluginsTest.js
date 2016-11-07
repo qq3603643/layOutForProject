@@ -46,4 +46,14 @@ $(()=>{
 	})
 
 	$('.btn').titleFollow();
+
+	$(document.body).on('click', function(){
+		var $this = $('.heightCgBox');
+		$this.cssTransitionShow(function(){
+			var $div = $('<div>', {
+				style: 'height:80px;background:#ccc;'
+			})
+			$this.append($div);
+		})
+	})
 })

@@ -12,28 +12,43 @@
 	$.fn.extend({
 		'cssTransitionShow': function(fn){
 
-			function handleShow()
-					 {
-					 	var _this = this,
-					 		$this = $(_this);
+			 function handleShow()
+			 {
+			 	var _this = this,
+			 		$this = $(_this),
+			 		_heightOrigin,
+			 		_heightTarget,
+			 		_heightShow;
 
-				 		if($this.is(':visible')) return;
-				 		fn && fn();
-				 		$this.show();
-				 		var _heightTarget = _this.clientHeight;
-				 		$this.css({
-				 			'height': '0px',
-				 			'transition': 'height 0s'
-				 		});
+		 		if(!$this.is(':visible'))
+	 			{
+	 				$this.show();
+	 				_heightOrigin = 0;
+	 			}
+	 			else
+ 				{
+ 					_heightOrigin = _this.clientHeight;
+ 				}
 
-				 		setTimeout(function(){
-				 			$this.css({
-					 			'height': _heightTarget + 'px',
-					 			'transition': 'height .6s'
-					 		});
-				 		},0);
-					 };
-			this.each(handleShow);
+ 				_heightShow = _this.clientHeight;
+		 		fn && fn.call(_this);
+		 		$this.css('height', 'auto');
+		 		_heightTarget = Math.max(_heightShow, _this.clientHeight);
+
+		 		$this.css({
+		 			'height': _heightOrigin + 'px',
+		 			'transition': 'height 0s'
+		 		});
+
+		 		setTimeout(function(){
+		 			$this.css({
+			 			'height': _heightTarget + 'px',
+			 			'transition': 'height .6s cubic-bezier(0.865, 0.030, 0.390, 0.835)'
+			 		});
+		 		},0);
+			 };
+
+			 this.each(handleShow);
 		}
 	});
 })
