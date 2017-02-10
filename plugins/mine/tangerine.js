@@ -231,7 +231,7 @@ define([],()=>{
 		      		let ele=eles[0],
 		      			L=0,T=0;
 
-	      			if(ele){
+	      			while(ele){
 	      				L+=ele.offsetLeft;
 	      				T+=ele.offsetTop;
 	      				ele=ele.offsetParent;

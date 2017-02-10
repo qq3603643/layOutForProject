@@ -21,12 +21,13 @@ module.exports = {
           // 'yx2': path.resolve(__dirname,'src/yx2/js/yx2.js')
           // 'activity_0707': path.resolve(__dirname,'src/activity_0707/js/activity_0707.js')
           // 'alertY': path.resolve(__dirname,'src/alertY/js/alertY.js'),
-          // 'yx3': path.resolve(__dirname,'src/yx3/js/yx3.js')
+          // 'yx3': path.resolve(__dirname,'src/yx3/js/yx3.js'),
           // 'myPluginsTest': path.resolve(__dirname, 'src/myPluginsTest/js/myPluginsTest.js'),
-          // 'yx4': path.resolve(__dirname, 'src/yx4/js/yx4.js')
+          'yx4': path.resolve(__dirname, 'src/yx4/js/yx4.js')
           // 'Yalert': path.resolve(__dirname, 'src/Yalert/js/Yalert.js')
-          'JFexchange': path.resolve(__dirname, 'src/JFexchange/js/JFexchange.js')
+          // 'JFexchange': path.resolve(__dirname, 'src/JFexchange/js/JFexchange.js')
           // 'uS_tst': path.resolve(__dirname, 'src/uS_tst/js/uS_tst.js')
+          // 'yearEndact': path.resolve(__dirname, 'src/yearEndact/js/yearEndact.js')
   },
   //出口
   output: {

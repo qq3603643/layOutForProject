@@ -172,8 +172,8 @@ const cart=(()=>{
 			},
 			addCartEvent(){
 
-				let _this=this;
-				COUNT_BAG = $(this).closest('.itemBag').attr('data-countBag') || $(this).closest('.listBag').attr('data-countBag');
+				let _this=this,
+				    COUNT_BAG = $(this).closest('.itemBag').attr('data-countBag') || $(this).closest('.listBag').attr('data-countBag');
 				// console.log(COUNT_BAG);
 				if(!cartE.userCheck()) return;
 				if(!$(_this).data('onff_click')) return;
@@ -209,7 +209,7 @@ const cart=(()=>{
 cart.inte($('.itemBag .btn'));
 
 //nav导航
-$('.setion').followEach($('.item_toGo'),'bg_red');
+$('.setion').followEach($('.item_toGo'),'on');
 $('#toTop').on('click',()=>{ $('html,body').stop(!0).animate({
 	'scrollTop':0
 },666) })

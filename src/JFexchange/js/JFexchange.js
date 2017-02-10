@@ -19,8 +19,8 @@ void function($, Win, undefined){
 				    	</div>
 				    </div>`,
 		    couponTpl: `<a class="at-btn" href="#{href}" target="_blank">
-							<p>#{companyName}</p>
-							<span>#{fullName}</span>
+							<p title="#{companyName}">#{companyName}</p>
+							<span title="#{companyName}">#{fullName}</span>
 						</a>`,
 			timerIdForInitCoupon: null,
 		};
