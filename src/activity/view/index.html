@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>activity</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="../css/index.css" rel="stylesheet">
+<script src="https://www.ypzdw.com/api/common/GetServerTime"></script>
+<script type="text/javascript" src="../js/jquery.js"></script>
+</head>
+<body>
+
+<!-- heaher -->
+<div class="header"></div>
+
+<!-- setion1 -->
+<div class="setion setion1">
+	<!-- <div class="hd">
+		<ul class="listDate">
+			<li class="itemDate">8月4号-8月5号</li>
+			<li class="itemDate">8月6号-8月7号</li>
+			<li class="itemDate">8月8号-8月9号</li>
+			<li class="itemDate">8月10号-8月11号</li>
+			<li class="itemDate">8月12号-8月13号</li>
+		</ul>
+	</div> -->
+	<div class="bd listWrap">
+		<ul class="listGoods"></ul>
+	</div>
+</div>
+
+<!-- setion2 -->
+<div class="setion setion2">
+	<div class="hd"></div>
+	<div class="bd listWrap">
+		<ul class="listGoods"></ul>
+	</div>
+</div>
+
+<!-- setion3 -->
+<div class="setion setion3">
+	<div class="hd">
+		<a class="btn bg_active" href="https://qx.ypzdw.com/" target="_blank">进入店铺</a>
+	</div>
+	<div class="bd"></div>
+</div>
+
+<!-- script -->
+<script type="text/javascript" src="../js/dataGoodsList.js"></script>
+<script type="text/javascript" src="../js/index.js"></script>
+
+<!-- 设置列表相关参数 -->
+<script type="text/javascript">
+	CreateListGood.inteWithLimit({
+		//活动时间(这里默认设置 ||每天|| 的n点开始)
+		'time_start':'2016-08-06 00:00:00',
+		'time_end':'2016-08-15 23:59:59',
+		'data':window.dataGoodsList,
+		//每天更新的商品个数
+		'amount_oneDay':1,
+		//列表容器
+		'container_list':$('.setion1 .listGoods'),
+		//是否限购(默认是有限购的)
+		'isCountLimit':true,
+		//默认不到时间不能点击按钮
+		'isBtnLimit':true,
+		//是否头部带有日期
+		'isHasDay': true
+	});
+	CreateListGood.inteNoLimit({
+		'data':window.dataGoodsList2,
+		'container_list':$('.setion2 .listGoods'),
+		'isCountLimit':false
+	});
+</script>
+<script type="text/javascript" src="https://static2.ypzdw.com/shop/js/promotion.js"></script>
+</body>
+</html>

@@ -42,6 +42,18 @@ require('../css/index.css');
 				let $left=$ele.find('.dialogue-item-left'),
 					$right=$ele.find('.dialogue-item-right');
 
+					if($ele[0].getBoundingClientRect().bottom+40+document.querySelector('#footer_page1').offsetHeight>$(window).height()){
+
+						let moveTop=$ele[0].getBoundingClientRect().bottom
+									+document.querySelector('#footer_page1').offsetHeight
+									+40
+									-$(window).height();
+
+						$ele.closest('.dialogue').animate({
+							'top':-moveTop+'px',
+						},444)
+
+					}
 					$left.removeClass('hide_dis').animate({
 						'margin':'0px',
 					},times_Appear);
@@ -243,6 +255,5 @@ require('../css/index.css');
 	function page11(){
 
 		fullScreen($('.page11 img'));
-		alert('over');
 	};
 })(window)

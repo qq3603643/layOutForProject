@@ -33,7 +33,7 @@ body{ font-size:1.4rem;max-width:414px;margin:0 auto; }
 .page1 .next{ width:10rem;height:10rem; }
 .page{ position:relative;background:#efeff4; }
 .content{ overflow:hidden; }
-.dialogue{ padding:1rem; }
+.dialogue{ position:relative;padding:1rem; }
 .dialogue-item img{ display:block;max-width:100%; }
 .dialogue-item{ font:0/0 '0';margin-bottom:1rem; }
 .dialogue-item-left,.dialogue-item-right{ display:inline-block;vertical-align:middle; }

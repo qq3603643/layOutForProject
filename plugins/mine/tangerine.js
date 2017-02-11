@@ -1,5 +1,5 @@
 define([],()=>{
-	const _=(()=>{
+	const _=((Win)=>{
 
 		const Doc=[document],
 			  undefine=void 0,
@@ -50,37 +50,37 @@ define([],()=>{
 				animate=(ele,targetJson,timers)=>{
 					return new Promise((resolve,reject)=>{
 
-					let start=new Date()*1;
-					let starJson={};
-					for(let key of Object.keys(targetJson)){
-						if(key=='opacity'){
-							starJson[key]=Math.round(getStyle(ele, 'opacity') * 100);
-						}else{
-							starJson[key]=parseInt(getStyle(ele, key));
-						}
-					}
-
-					clearInterval(ele.timer);
-					ele.timer=setInterval(()=>{
-
-						let now=new Date()*1;
-						let pass=Math.min(now-start,timers),value=pass/timers;
-
+						let start=new Date()*1;
+						let starJson={};
 						for(let key of Object.keys(targetJson)){
-							let nowTarget=starJson[key]+(targetJson[key]-starJson[key])*value;
 							if(key=='opacity'){
-								ele.style.opacity=nowTarget/100;
-								ele.style.filter = 'alpha(opacity=' + nowTarget + ')';
+								starJson[key]=Math.round(getStyle(ele, 'opacity') * 100);
 							}else{
-								ele.style[key]=nowTarget+'px';
+								starJson[key]=parseInt(getStyle(ele, key));
 							}
 						}
 
-						if(value==1){
-							clearInterval(ele.timer);
-							resolve();
-						}
-					},13)
+						clearInterval(ele.timer);
+						ele.timer=setInterval(()=>{
+
+							let now=new Date()*1;
+							let pass=Math.min(now-start,timers),value=pass/timers;
+
+							for(let key of Object.keys(targetJson)){
+								let nowTarget=starJson[key]+(targetJson[key]-starJson[key])*value;
+								if(key=='opacity'){
+									ele.style.opacity=nowTarget/100;
+									ele.style.filter = 'alpha(opacity=' + nowTarget + ')';
+								}else{
+									ele.style[key]=nowTarget+'px';
+								}
+							}
+
+							if(value==1){
+								clearInterval(ele.timer);
+								resolve();
+							}
+						},13)
 
 					})
 				},
@@ -214,7 +214,7 @@ define([],()=>{
 		      	AddClass(eles,classStr){
 
 		      		eles.forEach(item=>{
-		      			item.className+=' '+classStr;
+		      			item.className+=` ${classStr}`;
 		      		})
 		      	},
 
@@ -231,7 +231,7 @@ define([],()=>{
 		      		let ele=eles[0],
 		      			L=0,T=0;
 
-	      			if(ele){
+	      			while(ele){
 	      				L+=ele.offsetLeft;
 	      				T+=ele.offsetTop;
 	      				ele=ele.offsetParent;
@@ -335,6 +335,7 @@ define([],()=>{
 
 		      		let xhr=null,params=[];
 		      			type=type.toUpperCase();
+<<<<<<< HEAD
 			      		return new Promise((resolve,reject)=>{
 			      			xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
 			      			if(type=='GET'&&Object.keys(data).length){
@@ -343,6 +344,14 @@ define([],()=>{
 				      			}
 				      			url += (url.endsWith('?') ? '&' : '?') + params.join('&');
 				      			data=null;
+=======
+
+		      		return new Promise((resolve,reject)=>{
+		      			xhr = Win.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+		      			if(type=='GET'&&Object.keys(data).length){
+			      			for(let key of Object.keys(data)){
+			      				params[params.length]=`${key}=${data[key]}`;
+>>>>>>> 363de61e3c6c99497bb3e454efa091e9ebfbfb28
 			      			}
 			      			xhr.onreadystatechange=()=>{
 			      				_onStateChange(xhr);
@@ -364,7 +373,7 @@ define([],()=>{
 		      };
 
         return tools;
-	})()
+	})(window)
 	// export default _;  //相当于return出去
 	return _;
 })

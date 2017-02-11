@@ -1,0 +1,113 @@
+#maskForAptitude{
+	font: 14px/1.42858 'microsoft yahei';
+	position: fixed;
+	top: 0;bottom: 0;left: 0;right: 0;
+	z-index: 99990;
+	filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#7F000000', endColorstr='#7F000000');background:rgba(0,0,0,0.5);
+	.content{
+		&.scaleHide{
+			opacity: 0;
+			transform: scale(0.8);
+		}
+		&:after{
+			position: absolute;
+			left: -10px;right: -10px;top: -10px;bottom: -10px;
+			display: block;content: '';
+			border: 1px solid #cdcdcd;
+			z-index: -1;
+		}
+		position: absolute;
+		left: 0;right: 0;top: 0;bottom: 0;
+		margin: auto;
+		width: 796px;
+		height: 500px;
+		background: #fff;
+		box-shadow: 0 0 0 1px #cdcdcd inset;
+		transition: .4s cubic-bezier(0.360, 1.425, 0.800, 1.005);
+		.close{
+			position: absolute;
+			width: 15px;height: 60px;
+			right: 12px;top: 0;
+			background: url('../pics/aptitudeClose.png') no-repeat center;
+			cursor: pointer;
+			z-index: 99991;
+			opacity: 1 !important;
+			filter: alpha(opacity=100);
+			&:hover{
+				opacity: .5 !important;
+			}
+		}
+		.hd{
+			line-height: 60px;
+			font-size: 24px;
+			color: #333;
+			text-align: center;
+		}
+		.bd{
+			color: #fff;
+			.top{
+				height: 156px;
+				background: #3983d4;
+				h4{
+					margin: 0;
+					padding: 40px 0 22px 40px;
+					font-size: 24px;
+					line-height: 24px;
+					color: #fff;
+				}
+				p{
+					margin: 0;
+					padding-left: 40px;
+					font-size: 16px;
+					color: #fff;
+				}
+			}
+			.bottom{
+				height: 230px;
+				h4{
+					margin: 0;
+					padding: 30px 0 14px 40px;
+					font-size: 16px;
+					line-height: 16px;
+					color: #333;
+					font-weight: normal;
+				}
+				.info{
+					margin:0 auto;
+					width: 746px;
+					height: 138px;
+					border: 1px solid #ddd;
+					background: #f8f8f8;
+					.list{
+						padding-top: 24px;
+						p{
+							margin: 0;
+							font-size: 16px;
+							line-height: 24px;
+							color: #5075c5;
+							font-weight: 600;
+							text-indent: 36px;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+							overflow: hidden;
+						}
+					}
+				}
+			}
+		}
+		.ft{
+			line-height: 14px;
+			font-size: 14px;
+			text-align: center;
+			p{
+				margin: 0;
+				.blue{
+					.link{
+						color: #0000ff;
+						text-decoration: none;
+					}
+				}
+			}
+		}
+	}
+}

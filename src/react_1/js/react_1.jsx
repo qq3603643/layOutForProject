@@ -8,13 +8,120 @@ require('plugins/css/reset.css');
 require('plugins/css/tangerine.css');
 require('../css/react_1.css');
 
+<<<<<<< HEAD
+=======
+define(['react/addons','react-dom','plugins/tools/pubsub.js'],(React,ReactDOM,PubSub)=>{
+
+
+    class Form extends React.Component{
+
+        constructor(props) {
+
+          super(props);
+          this.state = {
+            isChecked:!0,
+          };
+        };
+        componentDidMount(){
+
+
+        };
+        handleChange(){
+
+            console.log(this.refs.checkBox.checked);
+        };
+        handleChangeSelect(){
+
+            console.log(this.refs.select.value);
+        };
+        //直接设置value或者checked 将成为一个不受控组件，点击后不可更改其的状态
+        render(){
+
+            return (
+                <form>
+                    <input type="text" defaultValue="tangerine" ref="txt"></input>
+                    <input type="checkbox" defaultChecked={ this.state.isChecked } ref="checkBox" onChange={ this.handleChange.bind(this) }></input>
+                    <select defaultValue="B"
+                            onChange={ this.handleChangeSelect.bind(this) }
+                            ref="select">
+                        <option value="A">Apple</option>
+                        <option value="B">Banana</option>
+                        <option value="C">Cranberry</option>
+                    </select>
+                </form>
+                );
+        };
+    };
+
+    ReactDOM.render(
+        <Form />,
+        document.querySelector('.setion')
+        );
+
+    let ReactCSSTransitionGroup=React.addons.CSSTransitionGroup;
+
+    let TodoList = React.createClass({
+      getInitialState: function() {
+
+        return {items: ['hello', 'world', 'click', 'me']};
+      },
+      handleAdd: function() {
+
+        let newItems = this.state.items.concat([prompt('Enter some text')]);
+        this.setState({items: newItems});
+      },
+      handleRemove: function(e) {
+
+        let $target=e.target || e.srcElement,
+            index=$target.getAttribute('data-index');
+
+        $target.style.border='0 none';
+        let newItems=this.state.items;
+        newItems.splice(index,1);
+        this.setState({
+            items: newItems
+        });
+      },
+      render: function() {
+
+        let items = this.state.items.map(function(item, i) {
+          return (
+            <li key={ item }
+                data-index={ i }
+                onClick={ this.handleRemove }>
+              {item}
+            </li>
+          );
+        }.bind(this));
+        return (
+            <div className="listBox">
+                <button onClick={this.handleAdd}>Add Item</button>
+                 <ul className="list">
+                    <ReactCSSTransitionGroup
+                        transitionName="example"
+                        transitionEnterTimeout={ 5000 }
+                        transitionLeaveTimeout={ 500 } >
+                      { items }
+                    </ReactCSSTransitionGroup>
+                  </ul>
+            </div>
+        );
+      }
+    });
+
+    ReactDOM.render(
+        <TodoList />,
+        document.querySelector('.setion0')
+        );
+
+>>>>>>> 363de61e3c6c99497bb3e454efa091e9ebfbfb28
     class CountDown extends React.Component{
 
         constructor(props) {
 
           super(props);
           this.state = {
-                times_server:new Date()*1,
+                times_server:this.props.times_server,
                 day_diff:'0',
                 hour_diff:'00',
                 min_diff:'00',
@@ -59,22 +166,174 @@ require('../css/react_1.css');
                 this.timeChange();
             } ,1000)
         };
+        componentWillUpdate(nP,nS){
+
+        };
         render(){
             return (
                 <div className='countDown auto'>
                     <h2 className="mg_b_30">距离 {this.props.time_future} :</h2>
-                    <em className="mg_10 pd_10 red">{this.state.day_diff}</em>day
-                    <em className="mg_10 pd_10 red">{this.state.hour_diff[0]}</em>
-                    <em className="mg_10 pd_10 red">{this.state.hour_diff[1]}</em>hour
-                    <em className="mg_10 pd_10 red">{this.state.min_diff[0]}</em>
-                    <em className="mg_10 pd_10 red">{this.state.min_diff[1]}</em>min
-                    <em className="mg_10 pd_10 red">{this.state.sec_diff[0]}</em>
-                    <em className="mg_10 pd_10 red">{this.state.sec_diff[1]}</em>sec
+                        <em className="mg_10 pd_10 red">{this.state.day_diff}</em>day
+                        <em className="mg_10 pd_10 red">{this.state.hour_diff[0]}</em>
+                        <em className="mg_10 pd_10 red">{this.state.hour_diff[1]}</em>hour
+                        <em className="mg_10 pd_10 red">{this.state.min_diff[0]}</em>
+                        <em className="mg_10 pd_10 red">{this.state.min_diff[1]}</em>min
+                        <em className="mg_10 pd_10 red">{this.state.sec_diff[0]}</em>
+                        <em className="mg_10 pd_10 red">{this.state.sec_diff[1]}</em>sec
                 </div>
                 );
         };
     };
 
+    ReactDOM.render(
+        <CountDown time_future="2017-08-07 00:00:00" times_server={ new Date()*1 } />,
+        document.querySelector('.setion1')
+        );
+
+    class Title extends React.Component{
+
+        constructor(props){
+
+            super(props);
+            this.state={
+                'title': this.props.title,
+            };
+        };
+        componentWillMount(){
+//第一次渲染之前执行 可以用来检测处理传入的参数？？
+            (this.state.title==0) && (this.setState({
+                'title': 1,
+            }));
+        };
+        componentDidMount(){
+
+            this.setState({
+                title: this.state.title+1,
+            });
+        };
+        shouldComponentUpdate(nP,nS){
+//在此可以决定是否执行下次的渲染(nextProps ,nextState)；根据返回的布尔值判断是否下次渲染
+// console.log(nS);
+            return nS.title<10;
+        };
+        componentWillUpdate(nP,nS){
+//下次渲染之前
+// console.log(nS);
+        };
+        componentDidUpdate(){
+
+           setTimeout(()=>{
+             this.setState({
+                title: this.state.title+1,
+             });
+           }, 1000)
+        };
+        render(){
+
+            return (
+                <div className="container">
+                    <h2>{ this.state.title }</h2>
+                </div>
+                );
+        };
+    }
+
+    ReactDOM.render(
+        <Title title='0'/>,
+        document.querySelector('.setion2')
+        );
+
+    class ControlList extends React.Component{
+
+        constructor(props) {
+
+          super(props);
+        };
+        isActive(index){
+
+            return this.props.currentIndex==index ? 'active' : '';
+        };
+        handleChange(index){
+
+            PubSub.publish('changeIndex',index+='');
+        };
+        render(){
+
+            return (
+                <ul className="list_control">
+                    {
+                        this.props.tiitles.map((item,index)=>{
+                            return  <li className={ `item_control ${this.isActive(index)}` }
+                                        key={ index }
+                                        onClick={ this.handleChange.bind(this,index) } >
+
+                                        { item }
+
+                                    </li>
+                        })
+                    }
+                </ul>
+                );
+        };
+    };
+    class ShowList extends React.Component{
+
+        constructor(props) {
+
+          super(props);
+        };
+        isActive(index){
+
+            return this.props.currentIndex==index ? 'active' : '';
+        };
+        render(){
+
+            return (
+                <ul className="list_show">
+                    {
+                        this.props.contents.map((item,index)=>{
+                            return <li className={ `item_show ${this.isActive(index)}` }
+                                       key={ index }>
+
+                                       { item }
+
+                                   </li>
+                        })
+                    }
+                </ul>
+                );
+        };
+    };
+    class TabBox extends React.Component{
+
+        constructor(props) {
+
+          super(props);
+          this.state = {
+            'currentIndex':0,
+          };
+        };
+        componentDidMount(){
+
+            PubSub.subscribe('changeIndex',(msg,index)=>{
+//msg为必须的默认的第一个参数(切记)
+                this.setState({
+                    'currentIndex':index,
+                });
+            });
+        };
+        render(){
+
+            return (
+                <div className="container">
+                    <ControlList tiitles={ this.props.title } currentIndex={ this.state.currentIndex } />
+                    <ShowList contents={ this.props.content } currentIndex={ this.state.currentIndex } />
+                </div>
+                );
+        };
+    };
+
+<<<<<<< HEAD
     ReactDOM.render(<CountDown time_future="2018-08-07 00:00:00"/>,document.querySelector('.setion1'));
 
 let
@@ -86,3 +345,15 @@ let
                    time_act="2016-07-28 09:00:00"/>,
         document.querySelector('.setion2')
         );
+=======
+    let json_tab={
+        'title': ['one','two','there'],
+        'content': ['apple','orange','banana'],
+    };
+    ReactDOM.render(
+        <TabBox {...json_tab}/>,
+        document.querySelector('.setion4')
+        );
+
+})
+>>>>>>> 363de61e3c6c99497bb3e454efa091e9ebfbfb28

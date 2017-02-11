@@ -1,0 +1,97 @@
+.exchangeListBox{
+	width:937px;
+	padding-bottom:26px;
+	margin-left:auto;
+	margin-right:auto;
+	background:#fff4e4;
+	&>h2{
+		padding-top:8px;
+		font-size:24px;
+		text-indent:38px;
+		line-height:40px;
+		color:#bf1b2b;
+	}
+	.listWrap{
+		padding:0 30px;
+		line-height:40px;
+		text-align:center;
+		color:#854b23;
+		.list_title{
+			background:#ffcfae;
+			border-bottom:1px solid #e5af8c;
+			overflow:hidden;
+			.item_title{
+				position:relative;
+				float:left;
+				width:33.33%;
+				height:40px;
+				font-size:16px;
+				font-weight:bold;
+				&:after{
+					position: absolute;
+					top:0;
+					right:-1px;
+					display:block;
+					content:'';
+					height:40px;
+					width:1px;
+					background:#e5af8c;
+				}
+			}
+		}
+		.list_conpon{
+			height:200px;
+			overflow:hidden;
+			.item_conpon{
+				cursor:pointer;
+				overflow:hidden;
+				&>span{
+					position:relative;
+					display:block;
+					float:left;
+					width:33.33%;
+					height:40px;
+					font-size:14px;
+					&:after{
+						position: absolute;
+						top:0;
+						right:-1px;
+						display:block;
+						content:'';
+						height:40px;
+						width:1px;
+						background:#e5af8c;
+					}
+				}
+			}
+		}
+	}
+}
+.countDown{
+	width:937px;
+	margin-left:auto;
+	margin-right:auto;
+	font-size:24px;
+	line-height:54px;
+	text-align:right;
+	color:#68390d;
+	background:#feca5c;
+	overflow:hidden;
+	.title{
+		display:inline-block;
+		padding-right:22px;
+		font-size:24px;
+	}
+	.detailsTime{
+		display:inline-block;
+		em{
+			display:inline-block;
+			width:34px;
+			margin:0 3px;
+			line-height:34px;
+			text-align:center;
+			border-radius:4px;
+			background:#fff;
+		}
+	}
+}
