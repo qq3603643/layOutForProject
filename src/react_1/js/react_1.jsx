@@ -8,10 +8,6 @@ require('plugins/css/reset.css');
 require('plugins/css/tangerine.css');
 require('../css/react_1.css');
 
-
-
-define(['react','react-dom'],(React,ReactDOM)=>{
-
     class CountDown extends React.Component{
 
         constructor(props) {
@@ -27,13 +23,14 @@ define(['react','react-dom'],(React,ReactDOM)=>{
         };
         getTimes(value){
 
-            if(!isNaN(new Date('1970-01-01 00:00:00')*1)) return new Date(value);
+            if(!isNaN(new Date(value)*1)) return new Date(value);
             let
-                aValue=value.split(/\s+/),
-                [iYear,iMouth,iDay]=aValue[0].split('-'),
-                [iHour,iMin,iSec]=aValue[1].split(':');
+                a=value.split(/[^0-9]/);
 
-            return new Date(iYear,iMouth-1,iDay)-new Date(1970,0,1)+(iSec*1+iMin*60+(iHour-8)*3600)*1000;
+            return new Date(
+                    a[0],a[1]-1,a[2],
+                    a[3],a[4],a[5]
+                )*1;
         };
         timeChange(){
 
@@ -41,8 +38,8 @@ define(['react','react-dom'],(React,ReactDOM)=>{
                 times_server =this.state.times_server+1000,
                 time_diff    =(this.getTimes(this.props.time_future)-times_server)/1000,
                 day_diff     =~~(time_diff/3600/24),
-                hour_diff    =~~(time_diff%(3600*24)/60/60),
-                min_diff     =~~((time_diff%3600)/60),
+                hour_diff    =~~(time_diff/3600%24),
+                min_diff     =~~(time_diff/60%60),
                 sec_diff     =~~(time_diff%60);
             hour_diff =hour_diff>9?''+hour_diff:'0'+hour_diff;
             min_diff  =min_diff>9?''+min_diff:'0'+min_diff;
@@ -78,5 +75,14 @@ define(['react','react-dom'],(React,ReactDOM)=>{
         };
     };
 
-    ReactDOM.render(<CountDown time_future="2017-08-07 00:00:00"/>,document.querySelector('.setion1'));
-})
+    ReactDOM.render(<CountDown time_future="2018-08-07 00:00:00"/>,document.querySelector('.setion1'));
+
+let
+    dataGoods=require('../../14year/js/goodData.js').hotGoods,
+    ListGoods=require('./ListGoods.jsx');
+
+    ReactDOM.render(
+        <ListGoods dataGoods={ dataGoods }
+                   time_act="2016-07-28 09:00:00"/>,
+        document.querySelector('.setion2')
+        );

@@ -6,10 +6,15 @@ const
       //文件分离打包(css)
       ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+
 module.exports = {
+
   //入口
   entry: {
-    'react_1': path.resolve(__dirname,'src/react_1/js/react_1.jsx'),
+    // 'react_1': [
+    //               path.resolve(__dirname,'src/react_1/js/react_1.jsx'),
+    //           ],
+    'nodelist' : path.resolve(__dirname,'src/nodelist/js/index.js'),
   },
   //出口
   output: {
@@ -22,6 +27,7 @@ module.exports = {
   },
   //加载器
   module: {
+
     loaders: [
       {
         test: /\.jsx?$/,
@@ -83,11 +89,13 @@ module.exports = {
         // }),
 
         //直接从/node_modules/中提取的js，可在全局js中直接使用，用npm install *** 安装在此目录下
-        new webpack.ProvidePlugin({
-          '$':'jquery',
-          'jQuery':'jquery',
-          'window.jQuery':'jquery',
-        }),
+        // new webpack.ProvidePlugin({
+        //   '$':'jquery',
+        //   'jQuery':'jquery',
+        //   'window.jQuery':'jquery',
+        //   'React':'react',
+        //   'ReactDOM':'react-dom'
+        // }),
         new webpack.NoErrorsPlugin(),
   ],
   //服务

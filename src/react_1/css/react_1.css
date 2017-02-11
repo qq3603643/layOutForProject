@@ -1,10 +1,35 @@
 .countDown{
 	width:400px;
 	margin-top:66px;
+	margin-bottom:100px;
 	em{
 		border-radius:4px;
 		background:#ccc;
 		font-size:18px;
 		line-height:18px;
+	}
+}
+.setion2{
+	width:1050px;
+	padding:20px;
+	outline:1px solid #ccc;
+}
+.list{
+	margin-right:-20px;
+	.pic_item{ height:220px;margin-top:10px; }
+	.pic_item>img{ max-width:220px;max-height:100%; }
+	.item_goods>p{ margin:4px 0;text-indent:26px; }
+	li{
+		float:left;
+		width:247px;
+		margin-right:20px;
+		margin-bottom:20px;
+		outline:1px solid #f00;
+		.bg_red{
+			background:#f00;
+		}
+		.btn{
+			width:110px;
+		}
 	}
 }
