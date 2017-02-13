@@ -39,23 +39,24 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.9.0",
-    "console-polyfill": "^0.2.2",
-    "es5-shim": "^4.5.8",
+    "babel-preset-react-hmre": "~1.1.1",
     "blueimp-md5": "^2.3.0",
     "classnames": "^2.2.3",
+    "console-polyfill": "^0.2.2",
+    "es5-shim": "^4.5.8",
+    "express": "~4.13.4",
     "jquery-param": "^0.2.0",
+    "lodash": "~4.11.1",
     "object-assign": "~4.0.1",
+    "open-browser-webpack-plugin": "0.0.3",
     "pinkyswear": "~2.2.2",
     "pubsub-js": "~1.5.3",
     "refetch": "^0.2.0",
-    "babel-preset-react-hmre": "~1.1.1",
-    "express": "~4.13.4",
-    "lodash": "~4.11.1",
     "webpack-dev-middleware": "~1.5.1",
     "webpack-hot-middleware": "~2.10.0"
   },
   "scripts": {
-    "webpack": "webpack --display-error-details",
-    "service": "webpack-dev-server --hot --inline"
+    "build": "webpack --display-error-details",
+    "start": "node devServer.babel.js"
   }
 }
