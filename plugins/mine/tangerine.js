@@ -335,32 +335,40 @@ define([],()=>{
 
 		      		let xhr=null,params=[];
 		      			type=type.toUpperCase();
+<<<<<<< HEAD
+			      		return new Promise((resolve,reject)=>{
+			      			xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+			      			if(type=='GET'&&Object.keys(data).length){
+				      			for(let key of Object.keys(data)){
+				      				params[params.length]=`${key}=${data[key]}`;
+				      			}
+				      			url += (url.endsWith('?') ? '&' : '?') + params.join('&');
+				      			data=null;
+=======
 
 		      		return new Promise((resolve,reject)=>{
 		      			xhr = Win.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
 		      			if(type=='GET'&&Object.keys(data).length){
 			      			for(let key of Object.keys(data)){
 			      				params[params.length]=`${key}=${data[key]}`;
+>>>>>>> 363de61e3c6c99497bb3e454efa091e9ebfbfb28
 			      			}
-			      			url += (url.endsWith('?') ? '&' : '?') + params.join('&');
-			      			data=null;
-		      			}
-		      			xhr.onreadystatechange=()=>{
-		      				_onStateChange(xhr);
-		      			};
-		      			xhr.open(type,url,async);
-		      			if(type=='POST'){
-		      				xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
-		      			}
-		      			if(data) xhr.send(data);
-		      			function _onStateChange(xhr){
-		      				if(xhr.readyState==4&&xhr.status>=200&&xhr.status<300){
-		      					resolve(xhr.responseText);
-		      					return xhr;
-		      				}
-		      				reject(xhr);
-		      		   };
-		      		})
+			      			xhr.onreadystatechange=()=>{
+			      				_onStateChange(xhr);
+			      			};
+			      			xhr.open(type,url,async);
+			      			if(type=='POST'){
+			      				xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+			      			}
+			      			if(data) xhr.send(data);
+			      			function _onStateChange(xhr){
+			      				if(xhr.readyState==4&&xhr.status>=200&&xhr.status<300){
+			      					resolve(xhr.responseText);
+			      					return xhr;
+			      				}
+			      				reject(xhr);
+			      		   };
+			      		})
 		      	},
 		      };
 

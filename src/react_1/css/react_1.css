@@ -2,6 +2,7 @@ body{ width:100vw;overflow-x:hidden; }
 .countDown{
 	width:400px;
 	margin-top:66px;
+	margin-bottom:100px;
 	em{
 		border-radius:4px;
 		background:#ccc;
@@ -9,6 +10,31 @@ body{ width:100vw;overflow-x:hidden; }
 		line-height:18px;
 	}
 }
+<<<<<<< HEAD
+.setion2{
+	width:1050px;
+	padding:20px;
+	outline:1px solid #ccc;
+}
+.list{
+	margin-right:-20px;
+	.pic_item{ height:220px;margin-top:10px; }
+	.pic_item>img{ max-width:220px;max-height:100%; }
+	.item_goods>p{ margin:4px 0;text-indent:26px; }
+	li{
+		float:left;
+		width:247px;
+		margin-right:20px;
+		margin-bottom:20px;
+		outline:1px solid #f00;
+		.bg_red{
+			background:#f00;
+		}
+		.btn{
+			width:110px;
+		}
+	}
+=======
 .setion4{
 	.container{
 		width:366px;
@@ -87,4 +113,5 @@ body{ width:100vw;overflow-x:hidden; }
 .example-leave-active {
 	transform:scale(3);
 	opacity:0;
+>>>>>>> 363de61e3c6c99497bb3e454efa091e9ebfbfb28
 }
