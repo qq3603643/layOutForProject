@@ -20,15 +20,16 @@ ReactDom.render(
 		document.querySelector('#root')
 	);
 
-// React.render(
-// 		(
-// 			<Router history = { hashHistory }>
-// 				<Route path="/links" component = { Links }>
-// 					<Route path="/" component = { Hello } />
-// 					<Route path="/hi" component = { Hi } />
-// 					<Route path="/say" component = { Say } />
-// 				</Route>
-// 			</Router>
-// 		),
-// 		document.querySelector('#root')
-// 	);
+//将links下面的组件事先隐藏 点击links子元素进行切换显示隐藏
+React.render(
+		(
+			<Router history = { hashHistory }>
+				<Route path="/links" component = { Links }>
+					<Route path="/" component = { Hello } />
+					<Route path="/hi" component = { Hi } />
+					<Route path="/say" component = { Say } />
+				</Route>
+			</Router>
+		),
+		document.querySelector('#root2')
+	);
