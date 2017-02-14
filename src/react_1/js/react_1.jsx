@@ -8,8 +8,6 @@ require('plugins/css/reset.css');
 require('plugins/css/tangerine.css');
 require('../css/react_1.css');
 
-<<<<<<< HEAD
-=======
 define(['react/addons','react-dom','plugins/tools/pubsub.js'],(React,ReactDOM,PubSub)=>{
 
 
@@ -114,7 +112,7 @@ define(['react/addons','react-dom','plugins/tools/pubsub.js'],(React,ReactDOM,Pu
         document.querySelector('.setion0')
         );
 
->>>>>>> 363de61e3c6c99497bb3e454efa091e9ebfbfb28
+
     class CountDown extends React.Component{
 
         constructor(props) {
@@ -333,7 +331,7 @@ define(['react/addons','react-dom','plugins/tools/pubsub.js'],(React,ReactDOM,Pu
         };
     };
 
-<<<<<<< HEAD
+
     ReactDOM.render(<CountDown time_future="2018-08-07 00:00:00"/>,document.querySelector('.setion1'));
 
 let
@@ -345,7 +343,7 @@ let
                    time_act="2016-07-28 09:00:00"/>,
         document.querySelector('.setion2')
         );
-=======
+
     let json_tab={
         'title': ['one','two','there'],
         'content': ['apple','orange','banana'],
@@ -356,4 +354,3 @@ let
         );
 
 })
->>>>>>> 363de61e3c6c99497bb3e454efa091e9ebfbfb28

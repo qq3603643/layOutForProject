@@ -1,5 +1,4 @@
 define(['react'],(React)=>{
-
 	class ItemGoods extends React.Component{
 
         constructor(props) {

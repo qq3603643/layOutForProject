@@ -51,12 +51,13 @@
     "open-browser-webpack-plugin": "0.0.3",
     "pinkyswear": "~2.2.2",
     "pubsub-js": "~1.5.3",
+    "react-router": "^3.0.2",
     "refetch": "^0.2.0",
     "webpack-dev-middleware": "~1.5.1",
     "webpack-hot-middleware": "~2.10.0"
   },
   "scripts": {
-    "build": "webpack --display-error-details",
+    "build": "webpack --display-error-details --config webpackBuild.config.babel.js",
     "start": "node devServer.babel.js"
   }
 }
