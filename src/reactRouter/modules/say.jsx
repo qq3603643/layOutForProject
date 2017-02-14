@@ -15,7 +15,7 @@ export default class Say extends React.Component
 				<div>
 					<h2>I Want To Say Hello To You, My Dear!</h2>
 					<p>
-						<Link to="/links">back to home.Page</Link>
+						<Link to="/">back to home.Page</Link>
 					</p>
 				</div>
 			)

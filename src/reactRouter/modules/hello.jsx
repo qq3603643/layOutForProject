@@ -13,7 +13,7 @@ export default class Hello extends React.Component
 				<div>
 					<h2>Hello, World! I Am Tangerine!</h2>
 					<p>
-						<Link to="/links">back to home.Page</Link>
+						<Link to="/">back to home.Page</Link>
 					</p>
 				</div>
 			)
