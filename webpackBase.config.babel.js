@@ -27,7 +27,8 @@ module.exports = {
           // 'JFexchange': path.resolve(__dirname, 'src/JFexchange/js/JFexchange.js')
           // 'uS_tst': path.resolve(__dirname, 'src/uS_tst/js/uS_tst.js')
           // 'yearEndact': path.resolve(__dirname, 'src/yearEndact/js/yearEndact.js')
-          'reactRouter': path.resolve(__dirname, 'src/reactRouter/js/index.jsx')
+          // 'reactRouter': path.resolve(__dirname, 'src/reactRouter/js/index.jsx')
+          'reactRedux': path.resolve(__dirname, 'src/reactRedux/js/index.jsx')
   },
   //出口
   output: {

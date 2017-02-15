@@ -15,7 +15,7 @@ export default class Hi extends React.Component
 				<div>
 					<h2>Hi Tangerine, I Am Apple!</h2>
 					<p>
-						<Link to="/">back to home.Page</Link>
+						<Link to="/home">back to home.Page</Link>
 					</p>
 				</div>
 			)

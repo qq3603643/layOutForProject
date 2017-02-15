@@ -51,7 +51,9 @@
     "open-browser-webpack-plugin": "0.0.3",
     "pinkyswear": "~2.2.2",
     "pubsub-js": "~1.5.3",
+    "react-redux": "^5.0.2",
     "react-router": "^3.0.2",
+    "redux": "^3.6.0",
     "refetch": "^0.2.0",
     "webpack-dev-middleware": "~1.5.1",
     "webpack-hot-middleware": "~2.10.0"

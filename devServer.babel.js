@@ -34,6 +34,7 @@ for(var key of Object.keys(config.entry)){
     contentBase: `./src/${key}/`,
     headers: { "X-Custom-Header": "yes" },
     hot: !0,
+    // historyApiFallback: !0,
     stats: {
         colors: true
     }
@@ -46,6 +47,13 @@ for(var key of Object.keys(config.entry)){
             url: `http://localhost:${NET_PORT}`   //urlSetting: the same with htmlSeparete
           }
       )
+    );
+  config.plugins.push(
+      new webpack.DefinePlugin({
+        'process.env': {
+            NODE_ENV: JSON.stringify('development')
+        }
+      })
     );
 }
 
