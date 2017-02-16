@@ -1,0 +1,39 @@
+.items
+{
+	li
+	{
+		cursor: pointer;
+		-webkit-user-select: none;
+		&.todo
+		{
+			color: #ccc;
+		}
+		&.done
+		{
+			color: #c00;
+			text-decoration: line-through;
+		}
+	}
+}
+.filterWraper
+{
+	padding: 10px;
+	.item
+	{
+		display: inline-block;
+		margin-right: 10px;
+		width: 80px;
+		text-align: center;
+		cursor: pointer;
+		box-shadow: 0 0 1px rgba(0, 0, 0, .2);
+		&:hover
+		{
+			background-image: linear-gradient(to bottom, rgba(0, 0, 0, .15), rgba(0, 0, 0, .15));
+		}
+		&.active
+		{
+			background: #ccc;
+			color: #fff;
+		}
+	}
+}
