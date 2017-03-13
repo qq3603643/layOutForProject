@@ -79,18 +79,26 @@ define([],function(){
 	    param["et"] = "onload";
 	    loadInterface();
 	},
-	/*
-	tracker.trace("getcoupon",{
-		"shopid" : 1,
-		"coutepid" : 2
-	});
-	*/
-	trace = function (en, pas) {
+	/**
+	 * @param  {String} 事件类型
+	 * @param  {String} 桩点名称
+	 * @param  {Object} 自定义参数 字典
+	 * @usage
+	 * tracker.trace("onload","getcoupon",{
+	 *	"shopid" : 1,
+	 *	"coutepid" : 2
+	 * });
+	 */
+	trace = function (et, en, pas) {
 	    getDefaultParam();
-	    param["et"] = "click";
-	    param["en"] = en;
+	    param["et"] = et;
+	    if(en){param["en"] = en;}
 	    if (pas) {
-	        param["pas"] = formatParam(pas);
+	    	if(pas instanceof Object){
+	    		param["pas"] = t.formatParam(pas);
+	    	}else{
+		    	param["pas"] = pas.replace(/:/g, '=').replace(/,/g, '&');
+		    }
 	    }
 	    loadInterface();
 	},

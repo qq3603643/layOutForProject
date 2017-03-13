@@ -5,9 +5,10 @@ module.exports = {
   cache: !0,
   //入口
   entry: {
-          'YW': [
-            'react', 'react-dom', 'jquery'
-          ],
+          // 'YW': [
+          //   // 'react', 'react-dom',
+          //    'jquery'
+          // ],
           // 'yx': [path.resolve(__dirname,'src/yx/js/yx.js')],
           // 'react_1': path.resolve(__dirname,'src/react_1/js/react_1.jsx'),
           // 'jifen': path.resolve(__dirname,'src/jifen/js/jinfen.jsx'),
@@ -29,7 +30,13 @@ module.exports = {
           // 'yearEndact': path.resolve(__dirname, 'src/yearEndact/js/yearEndact.js')
           // 'reactRouter': path.resolve(__dirname, 'src/reactRouter/js/index.jsx')
           // 'reactRedux': path.resolve(__dirname, 'src/reactRedux/js/index.jsx')
-          'reactReduxTodos': path.resolve(__dirname, 'src/reactReduxTodos/js/index.jsx')
+          // 'reactReduxTodos': path.resolve(__dirname, 'src/reactReduxTodos/js/index.jsx')
+          // 'login': path.resolve(__dirname, 'src/login/js/login.js'),
+          'modifymobile': path.resolve(__dirname, 'src/modifymobile/js/modifymobile.js'),
+          // 'retrieve': path.resolve(__dirname, 'src/retrieve/js/retrieve.js')
+          // 'reactDrag': path.resolve(__dirname, 'src/reactDrag/js/index.jsx')
+          // 'reactAjax': path.resolve(__dirname, 'src/reactAjax/js/index.jsx')
+          // 'reactMiddleware': path.resolve(__dirname, 'src/reactMiddleware/js/index.jsx')
   },
   //出口
   output: {

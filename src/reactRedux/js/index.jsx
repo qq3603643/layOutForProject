@@ -19,7 +19,7 @@ require('../css/index.css')
 	   # 当接受到指令时 state根据renducer属性状态 订阅的渲染函数再次执行 #
 */
 
-
+//orderState (action) 必须有type
 const reducer = (state = { number: 0 }, orderState) =>
 		{
 			let _n = orderState.type == 'Plus_One' ? 1 : orderState.type == 'Minus_One' ? -1 : 0;

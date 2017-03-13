@@ -12,6 +12,9 @@ for(var key of Object.keys(config.entry)){
   if(key == 'YW')
   {
     console.log('base; jump!!');
+    config.plugins.push(
+        new CommonsChunkPlugin('YW', 'js/YW.baseBundle.js')
+    );
     continue;
   }
   console.log(`正在生成的项目是${key}...主人请耐心等待呃...`);
@@ -36,13 +39,17 @@ config.plugins.push(
       new ExtractTextPlugin('css/[name].min.css?[hash]')
   );
 config.plugins.push(
-      new CommonsChunkPlugin('YW', 'js/YW.baseBundle.js')
-  );
-config.plugins.push(
       new webpack.optimize.UglifyJsPlugin({    //压缩
             compress: {
               warnings: false,
             }
+        })
+  );
+config.plugins.push(
+      new webpack.DefinePlugin({
+          "process.env": {
+             NODE_ENV: JSON.stringify("production")
+           }
         })
   );
 

@@ -54,7 +54,7 @@ class PpButton extends React.Component
 
 	  this.state = {};
 	}
-	getChildContext()   //父级需要(经测试必须放在class构建内)
+	getChildContext()   //父级需要(经测试必须放在class构建内 不能像childContextTypes在后面类添加属性)
 	{
 		return {
 			btnName: this.props.btnName

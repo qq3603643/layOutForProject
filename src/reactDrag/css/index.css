@@ -1,0 +1,25 @@
+*
+{
+	margin: 0;
+	padding: 0;
+}
+.root
+{
+	position: relative;
+	margin: 0 auto;
+	width: 800px;height: 800px;
+	box-shadow: 0 0 1px rgba(0, 0, 0, .66);
+	.box
+	{
+		position: absolute;
+		width: 80px;height: 80px;
+		line-height: 80px;
+		text-align: center;
+		font-size: 22px;
+		color: #fff;
+		background-color: #ddd;
+		cursor: pointer;
+		-webkit-user-select: none;
+		user-select: none;
+	}
+}
