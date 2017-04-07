@@ -10,7 +10,7 @@ require('babel-polyfill');
 /* css **/
 require('../css/modifymobile.css');
 
-define([], () =>
+define(['plugins/tools/tracker.js'], (Tracker) =>
 {
-	console.log('modifymobile');
+	
 })

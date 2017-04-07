@@ -31,8 +31,12 @@ module.exports = {
           // 'reactRouter': path.resolve(__dirname, 'src/reactRouter/js/index.jsx')
           // 'reactRedux': path.resolve(__dirname, 'src/reactRedux/js/index.jsx')
           // 'reactReduxTodos': path.resolve(__dirname, 'src/reactReduxTodos/js/index.jsx')
-          // 'login': path.resolve(__dirname, 'src/login/js/login.js'),
-          'modifymobile': path.resolve(__dirname, 'src/modifymobile/js/modifymobile.js'),
+          'login': path.resolve(__dirname, 'src/login/js/login.js'),
+          // 'modifymobile': path.resolve(__dirname, 'src/modifymobile/js/modifymobile_ensure.js'),
+          // 'modifymobile_validate_current': path.resolve(__dirname, 'src/modifymobile_validate_current/js/modifymobile_validate_current.js'),
+          // 'modifymobile_validate_new': path.resolve(__dirname, 'src/modifymobile_validate_new/js/modifymobile_validate_new.js'),
+          // 'modifymobile_resetpassword': path.resolve(__dirname, 'src/modifymobile_resetpassword/js/modifymobile_resetpassword.js'),
+          // 'modifymobile_complete': path.resolve(__dirname, 'src/modifymobile_complete/js/modifymobile_complete.js'),
           // 'retrieve': path.resolve(__dirname, 'src/retrieve/js/retrieve.js')
           // 'reactDrag': path.resolve(__dirname, 'src/reactDrag/js/index.jsx')
           // 'reactAjax': path.resolve(__dirname, 'src/reactAjax/js/index.jsx')
@@ -68,7 +72,7 @@ module.exports = {
       {
         test: /\.(jpg|png|jpeg|svg|gif)$/,
         //小于8172b的将压缩成base64格式大于则保存至output下的path下的制定目录
-        loader: 'url-loader?limit=8172&name=pics/[name].[ext]',
+        loader: 'url-loader?limit=8&name=pics/[name].[ext]',
       },
     ]
   },

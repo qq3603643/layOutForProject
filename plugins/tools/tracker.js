@@ -95,7 +95,7 @@ define([],function(){
 	    if(en){param["en"] = en;}
 	    if (pas) {
 	    	if(pas instanceof Object){
-	    		param["pas"] = t.formatParam(pas);
+	    		param["pas"] = formatParam(pas);
 	    	}else{
 		    	param["pas"] = pas.replace(/:/g, '=').replace(/,/g, '&');
 		    }

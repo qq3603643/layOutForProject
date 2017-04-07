@@ -9,19 +9,21 @@ require('babel-polyfill');
 
 require('../css/login.css');
 
-define(['plugins/tools/localStorage.js', 'plugins/jquery/placeholder.js', './guide.js'],function(lS)
+define(['plugins/tools/localStorage.js', 'plugins/tools/tracker.js', 'plugins/jquery/placeholder.js', './guide.js'],function(lS, Tracker)
 {
 	var login = function()
 	{
-		var
+		var $lgForm    = $('#J_login_form'),
 			$sumbitBtn = $('#J_login'),
 			$usNmIpt = $('#J_lg_usNm'),
 			$psWdIpt = $('#J_lg_psWd'),
 			$ntcInfo = $('#J_lg_ntc'),
 			$lgMdIpt  = $('#J_login_method'),
+			$lgHdusername = $('#J_login_hd_username'),
+			da_tracker = {},
 			$GLOBAL_INFO = {
-				mobile: { placeholder: '请输入手机号', usNm: '', psWd: '', maxLen: 11 },
-				account: { placeholder: '请输入帐号',  usNm: '', psWd: '', maxLen: 20 }
+				mobile: { name: 'mobileNm', placeholder: '请输入手机号', usNm: '', psWd: '', maxLen: 11 },
+				account: { name: 'username', placeholder: '请输入帐号',  usNm: '', psWd: '', maxLen: 20 }
 			},
 			loginE = {
 				initAccount: function()
@@ -43,6 +45,9 @@ define(['plugins/tools/localStorage.js', 'plugins/jquery/placeholder.js', './gui
 
 					loginAccount = lS.get('loginAccount');
 
+					/* tracker **/
+					da_tracker.tab = loginMethod;
+
 					if(loginMethod == 'mobile')
 					{
 						$usNmIpt.val(loginMobile);
@@ -53,6 +58,8 @@ define(['plugins/tools/localStorage.js', 'plugins/jquery/placeholder.js', './gui
 						$('#J_lg_account').addClass('active')
 						                  .siblings('span').removeClass('active');
 	                    $usNmIpt.attr('placeholder', '请输入帐号')
+                    			.attr('maxlength', $GLOBAL_INFO[loginMethod]['maxLen'])
+                				.attr('name', $GLOBAL_INFO[loginMethod]['name'])
 	                    		.closest('dd').siblings('dt').attr('class', 'account');
 		                $usNmIpt.val(loginAccount);
 					}
@@ -80,6 +87,7 @@ define(['plugins/tools/localStorage.js', 'plugins/jquery/placeholder.js', './gui
 				    $ntcInfo.addClass('hide');
 				    $this.addClass('active').siblings('span').removeClass('active');
 				    $usNmIpt.attr('placeholder', $GLOBAL_INFO[method]['placeholder'])
+				    		.attr('name', $GLOBAL_INFO[method]['name'])
 				            .closest('dd').siblings('dt').attr('class', method);
 			    	// record
 				    $GLOBAL_INFO[otherMethod]['usNm'] = $usNmIpt.val();
@@ -106,15 +114,21 @@ define(['plugins/tools/localStorage.js', 'plugins/jquery/placeholder.js', './gui
 						_isAccount = _method == 'account',
 						_isNull = !_isMobile && !_isAccount,
 						_isCorrectMobile = _isMobile && (/^\d+$/).test(_sVal),
-						_isCorrectAccount = _isAccount && (/^\w+$/).test(_sVal);
+						// _isCorrectAccount = _isAccount && (/^\w+$/).test(_sVal);
+						/* 2017/4/5 解除帐号输入限制 **/
+						_isCorrectAccount = _isAccount;
 
 					if(_isNull || _isEmpty || _isCorrectMobile || _isCorrectAccount)
 						return;
 
 					var re = _isMobile
 					         ? /[^0-9]/g
-					         : /[^0-9a-zA-Z]/g
-					         ;
+					         // : /[^0-9a-zA-Z]/g
+					         /* 2017/4/5 解除帐号输入限制 **/
+					         : null
+					        ;
+			        /* 2017/4/5 解除帐号输入限制 **/
+			        re &&
 					$this.val(
 						_sVal.replace(re, '')
 						);
@@ -178,32 +192,54 @@ define(['plugins/tools/localStorage.js', 'plugins/jquery/placeholder.js', './gui
 				{
 
 				},
-				submitHandler: function()
+				submitHandler: function(e)
 				{
+
 					var $this = $(this);
 
-					if($this.data('isAjaxing'))	return;
 					if(!loginE.validateHandler())
-						return false;
-					else
-						$this.data('isAjaxing', !0).addClass('gray');
+					{
+						e.preventDefault();
+						return;
+					}
+					if($this.data('isAjaxing'))
+					{
+						e.preventDefault();
+						return;
+					}
+
+					$this.data('isAjaxing', !0);
 
 					var method = $usNmIpt.closest('dd').siblings('dt')[0].className,
 						userName = $usNmIpt.val();
 
 					if(method == 'mobile')
+					{
+						const mobile_username = lS.get(`${ userName }_username`);
+
+						$lgHdusername.val(mobile_username);
 						lS.set('loginMobile', userName);
+					}
 					else
+					{
+						$lgHdusername.remove();
 						lS.set('loginAccount', userName);
+					}
 
 					lS.set('loginLastMethod', method);
 					$lgMdIpt.val(method);
+
+					/* tracker **/
+					da_tracker.lasttab = method;
+					Tracker.trace('click', 'clicklogin', da_tracker);
+
+					return true;
 				},
 				run: function()
 				{
 					loginE.initHoldplacer();loginE.initAccount();
 					$('#J_lg_mobile, #J_lg_account').on('click', loginE.tabMethod);
-					$sumbitBtn.on('click', loginE.submitHandler);
+					$lgForm.on('submit', loginE.submitHandler);
 					$usNmIpt.on('propertychange input', loginE.typeLimit);
 					$usNmIpt.on('blur', loginE.validateMobile);
 					$usNmIpt.add($psWdIpt).on('propertychange input', loginE.hideNt);

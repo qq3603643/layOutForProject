@@ -12,8 +12,9 @@
     	<div class="header">
 	    	<div class="inner">
 	    		<div class="logo">
-	    			<img src="../pics/yw_login_logo.png" alt="YPZDW" class="l-pic">
+	    			<img src="../pics/yw_modifymobile_logo.png" alt="YPZDW" class="l-pic">
 	    		</div>
+
 	    		<div class="concat">
 	    			<p class="tel">
 	    				<i class="phone-ic"></i>
@@ -26,69 +27,75 @@
 	    				</a>
 					</p>
 	    		</div>
+
+	    		<div class="userinfo">
+	    			<p>欢迎登录， tb0556</p>&ensp;|<p class="logout">&ensp;退出</p>
+	    		</div>
 	    	</div>
     	</div>
     	<div class="content">
-    		<a href="www.baidu.com" class="ct-bg"></a>
     		<div class="inner">
-	    		<div class="ct-ct">
-	    			<h2 class="login-hd">
-						<!-- <span class="lf">药王通信证</span>
-						<span class="right">
-							不是会员？<a href="www.baidu.com" class="register" target="_blank" title="REGISTER">去注册</a>
-						</span> -->
-						<span class="lf active" id="J_lg_mobile">
-							手机号登录
-						</span>
-						<span class="right" id="J_lg_account">
-							帐号登录
-						</span>
-					</h2>
-	    			<form class="login-bd" id="J_login_form" action="www.ypzdw.com" method="POST">
-                    	<input id="J_login_method" name="tab" type="hidden" value="mobile" />
-                    	<input id="J_login_hd_username" name="username" type="hidden">
-						<dl class="form-item">
-							<dt class="mobile">
-								<!-- <i class="tel"></i> -->
-							</dt>
-							<dd>
-								<input name="mobileNm" class="txt" id="J_lg_usNm" type="text" placeholder="请输入手机号" maxlength="11">
-								<label class="border_heightLight"></label>
-							</dd>
-						</dl>
-						<dl class="form-item">
-							<dt class="pswd">
-								<!-- <i class="lock"></i> -->
-							</dt>
-							<dd>
-								<input class="pswd" id="J_lg_psWd" type="password" placeholder="请输入密码" maxlength="20">
-								<label class="border_heightLight"></label>
-							</dd>
-						</dl>
-						<p class="btn_wp">
-							<label class="btn">
-								登录
-								<input class="hide-clip" id="J_login" type="submit"></input>
-							</label>
-						</p>
-						<p class="fcts-lg">
-							<a href="www.baidu.com" class="register" target="_blank">
-								不是会员
-								<em class="red">去注册</em>
-							</a>
-							<a href="www.ypzdw.com" class="forgetPsw" target="_blank">
-								忘记密码?
-							</a>
-							<a href="www.ypzdw.com" class="retrieveLink" id="J_mobileretrieve">
-								找回手机号
-							</a>
-						</p>
-						<p class="notice hide" id="J_lg_ntc">
-							<i class="nt-icon"></i>
-							<span class="nt-txt">请输入您的手机号和密码</span>
-						</p>
-	    			</form>
-	    		</div>
+    			<div class="tit">
+    				<ul class="progess-steps">
+    					<li class="step completed">
+    						验证身份
+    					</li>
+    					<li class="step completed">
+    						确认/修改手机号
+    					</li>
+    					<li class="step completed">
+    						确定手机帐号密码
+    					</li>
+    					<li class="step doing">
+    						完成
+    					</li>
+    				</ul>
+    			</div>
+    			<div class="ct">
+					<!-- complete -->
+					<ul class="mobile-items complete">
+						<!-- rewrite password -->
+						<li class="item hide">
+							<div class="up">
+								<h2 class="tit">
+									密码确认完成
+								</h2>
+								<p class="words">
+									该密码可用于<span class="red">登录药品终端网、药豆终端宝及其他药王科技平台</span>
+									<br />
+									(打开终端宝时请使用新的密码登录)
+								</p>
+							</div>
+							<p class="btn-group">
+								<span class="btn">去登录</span>
+							</p>
+						</li>
+						<!-- direct successly -->
+						<li class="item hide">
+							<div class="up">
+								<h2 class="tit"></h2>
+								<p class="words">
+									该手机号码（18288555555）可用于登录<span class="red">药品终端网、药豆终端宝及其他药王科技平台</span>，登录密码与您登录终端宝的密码一致
+								</p>
+							</div>
+							<p class="btn-group">
+								<span class="btn">完成</span>
+							</p>
+						</li>
+						<!-- modify mobile success -->
+						<li class="item">
+							<div class="up">
+								<h2 class="tit">手机号码修改完成</h2>
+								<p class="words">
+									该手机号码（18288555555）可用于登录<span class="red">药品终端网、药豆终端宝及其他药王科技平台</span>，登录密码与您登录终端宝的密码一致
+								</p>
+							</div>
+							<p class="btn-group">
+								<span class="btn">去登录</span>
+							</p>
+						</li>
+					</ul>
+    			</div>
     		</div>
     	</div>
     </div>
@@ -126,22 +133,6 @@
 	            </a>
 	        </p>
 	    </div>
-	</div>
-	<div class="mask-guide" id="J_login_mobile_guide">
-		<div class="guide-first hide" id="J_guide_first">
-			<h4 class="tit">手机号登录</h4>
-			<div class="guide-ct">
-				<p class="tips"></p>
-				<p class="btn" id="J_guide_first_btn"></p>
-			</div>
-		</div>
-		<div class="guide-second hide" id="J_guide_second">
-			<h4 class="tit">找回手机号</h4>
-			<div class="guide-ct">
-				<p class="tips"></p>
-				<p class="btn" id="J_guide_second_btn"></p>
-			</div>
-		</div>
 	</div>
 </body>
 </html>

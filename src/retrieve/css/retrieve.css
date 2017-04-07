@@ -143,6 +143,10 @@ body
 								{
 									background: url('../pics/ipt_code.png') center no-repeat;
 								}
+								&.account
+								{
+									background: url('../pics/ipt_account.png') center no-repeat;
+								}
 							}
 							dd
 							{

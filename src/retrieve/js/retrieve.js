@@ -9,7 +9,7 @@ require('babel-polyfill');
 
 require('../css/retrieve.css');
 
-define(['plugins/jquery/placeholder.js'], function()
+define(['plugins/tools/localStorage.js', 'plugins/jquery/placeholder.js'], function(Ls)
 {
 	var retrieve = function()
 	{
@@ -112,7 +112,8 @@ define(['plugins/jquery/placeholder.js'], function()
 						    	var sAccount = data.data || '{ NULL }';
 
 						    	$('#J_usMobile').text(sAccount);
-							    localStorage.setItem('loginMobile', sAccount);
+							    Ls.set('loginMobile', sAccount);
+							    Ls.set(`${ sAccount }_username`, senData.account);
 							}
 						)
 					.fail(

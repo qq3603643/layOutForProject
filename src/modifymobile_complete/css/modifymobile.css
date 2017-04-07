@@ -112,11 +112,11 @@ body
 		.content
 		{
 			/* TODO TODO **/
-			height: 540px;
+			height: 470px;
 			.inner
 			{
 				margin: 70px auto 0;
-				width: 750px;height: 470px;
+				width: 750px;height: 400px;
 				background-color: #fff;
 				box-shadow: 0 0 2px rgba(0, 0, 0, .05);
 				.tit
@@ -132,7 +132,7 @@ body
 						text-align: justify;
 						overflow: hidden;
 						/* couter */
-						counter-reset: modifymobile;
+						counter-reset: modifymobile;/* counter-reset: countername startnumber; **/
 						&:after
 						{
 							display: inline-block;
@@ -216,6 +216,253 @@ body
 				.ct
 				{
 					padding: 0 26px;
+					.mobile-items
+					{
+						&.hide
+						{
+							display: none;
+						}
+						.item
+						{
+							&.hide
+							{
+								display: none;
+							}
+							& > .tit
+							{
+								padding-top: 8px;
+								line-height: 56px;min-height: 27px;
+								font-size: 16px;
+								font-weight: 600;
+								text-align: center;
+								color: #333;
+							}
+							.ct-form
+							{
+								margin-left: 160px;
+								.formrow
+								{
+									.formitem
+									{
+										position: relative;
+										dd, dt
+										{
+											display: inline-block;
+											vertical-align: middle;
+										}
+										display: inline-block;
+										height: 48px;
+										border: 1px solid #ddd;
+										.mobile, .code, .iphone
+										{
+											width: 44px;height: 100%;
+											background: url('../pics/ipt_iphone.png') no-repeat center;
+										}
+										.code
+										{
+											background: url('../pics/ipt_code.png') no-repeat center;
+										}
+										.iphone
+										{
+											background: url('../pics/ipt_iphone.png') no-repeat center;
+										}
+										.none
+										{
+											width: 10px;
+										}
+										&.info
+										{
+											width: 398px;
+											background-color: #f8f8f8;
+											.ipt
+											{
+												line-height: 48px;
+												font-size: 18px;
+												color: #666;
+												.lower
+												{
+													font-size: 16px;
+													color: #999;
+												}
+											}
+										}
+										&.txt
+										{
+											width: 248px;
+											.ipt
+											{
+												height: 100%;
+												.text
+												{
+													width: 180px;
+													height: 48px;line-height: 48px;
+													padding: 0;
+													border: 0 none;
+													font-size: 16px;
+													&:focus
+													{
+														outline: 0 none;
+														border: 0 none;
+													}
+													&:focus + .border_heightLight
+													{
+														outline: 2px solid #cedeed;
+														z-index: 1;
+													}
+													&.placeholder
+													{
+														color: #ccc;
+													}
+												}
+												.border_heightLight
+												{
+													position: absolute;
+													left: 0;right: 0;top: 0;bottom: 0;
+													z-index: -1;
+													pointer-events:none;
+												}
+											}
+										}
+									}
+									.operate
+									{
+										margin-left: 18px;
+										font-size: 16px;
+										&.gomodify
+										{
+											color: #0044ee;
+										}
+										&.getcode
+										{
+											color: #000;
+										}
+									}
+								}
+								.tips
+								{
+									margin-bottom: 4px;
+									font-size: 12px;
+									line-height: 34px;
+									min-height: 34px;
+									&.error
+									{
+										color: #ff6255;
+										.details
+										{
+											display: inline-block;
+											color: #ff6255;
+											transition: .4s transform;
+											&.hide
+											{
+												display: none;
+												visibility: hidden;
+												transform: translateX(10px);
+											}
+										}
+									}
+									.green
+									{
+										font-weight: 600;
+										color: #2d9801;
+									}
+								}
+								.btn-group
+								{
+									width: 400px;
+									height: 50px;line-height: 50px;
+									user-select: none;
+									-webkit-user-select: none;
+									.btn
+									{
+										display: inline-block;
+										width: 100%;
+										font-size: 20px;
+										text-align: center;
+										color: #fff;
+										background-color: #6692ff;
+										cursor: pointer;
+										&:hover
+										{
+											background-image: linear-gradient(to bottom, rgba(0, 0, 0, .05), rgba(0, 0, 0, .05));
+										}
+										&.btn-next, &.btn-prev
+										{
+											width: 148px;
+											border: 1px solid #ddd;
+										}
+										&.btn-next
+										{
+											float: left;
+										}
+										&.btn-prev
+										{
+											float: right;
+											color: #333;
+											background-color: #f8f8f8;
+										}
+									}
+								}
+							}
+						}
+						&.complete
+						{
+							.item
+							{
+								.hide
+								{
+									display: none;
+								}
+								.up
+								{
+									margin: 0 auto;
+									width: 467px;height: 205px;
+									text-align: center;
+									.tit
+									{
+										padding-top: 38px;
+										height: 42px;line-height: 42px;
+										font-size: 24px;
+										font-weight: normal;
+										color: #333;
+									}
+									.words
+									{
+										padding-top: 6px;
+										text-align: center;
+										font-size: 16px;
+										line-height: 24px;
+										.red
+										{
+											color: #ff3434;
+										}
+									}
+								}
+								.btn-group
+								{
+									margin: 0 auto;
+									width: 400px;height: 50px;
+									.btn
+									{
+										display: inline-block;
+										width: 100%;
+										line-height: 50px;
+										text-align: center;
+										font-size: 16px;
+										color: #fff;
+										background-color: #6692ff;
+										cursor: pointer;
+										user-select: none;
+										-webkit-user-select: none;
+										&:hover
+										{
+											background-image: linear-gradient(to bottom, rgba(
+												0, 0, 0, .05), rgba(0, 0, 0, .05));
+										}
+									}
+								}
+							}
+						}
+					}
 				}
 			}
 		}

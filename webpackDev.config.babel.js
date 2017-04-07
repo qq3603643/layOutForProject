@@ -15,7 +15,7 @@ for(var k in entry)
 }
 console.log(nameFile, pathFile);
 Config = {
-    output: { path: path.resolve(__dirname, './build/'), filename: 'buildBundle.js' },
+    output: { path: path.resolve(__dirname, './build/'), filename: 'buildBundle.js', publicPath: '../' },
     module: {
         loaders: config.module.loaders.concat(
                         {

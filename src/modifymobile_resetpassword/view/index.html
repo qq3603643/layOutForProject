@@ -40,10 +40,10 @@
     					<li class="step completed">
     						验证身份
     					</li>
-    					<li class="step doing">
+    					<li class="step completed">
     						确认/修改手机号
     					</li>
-    					<li class="step">
+    					<li class="step doing">
     						确定手机帐号密码
     					</li>
     					<li class="step">
@@ -52,7 +52,46 @@
     				</ul>
     			</div>
     			<div class="ct">
-    				
+    				<!-- confirm account&&password -->
+					<ul class="mobile-items confirm">
+						<li class="item">
+    						<h2 class="tit"></h2>
+    						<div class="ct-form">
+    							<div class="formrow">
+	    							<dl class="formitem txt" style="width: 398px">
+	    								<dt class="none"></dt>
+	    								<dd class="ipt">
+	    									<input type="password" class="text" placeholder="请输入密码" maxlength="11" id="J_password" style="width: 330px;" maxlength="20">
+	    									<label class="border_heightLight"></label>
+	    								</dd>
+	    							</dl>
+    							</div>
+    							<p class="tips">
+    								<span class="details" style="color: green;">
+    									此密码将作为您登录药品终端网、药豆终端宝及其他药王科技平台的统一密码，请牢记
+    								</span>
+    							</p>
+    							<div class="formrow">
+	    							<dl class="formitem txt" style="width: 398px">
+	    								<dt class="none"></dt>
+	    								<dd class="ipt">
+	    									<input type="password" class="text" placeholder="请再次输入密码" maxlength="11" id="J_repeatpassword" style="width: 330px;" maxlength="20">
+	    									<label class="border_heightLight"></label>
+	    								</dd>
+	    							</dl>
+    							</div>
+    							<p class="tips error">
+    							    <span class="details hide" id="J_vcodeErrorInfo">
+    							    <!-- hide -->
+    									验证码错误，请重新输入
+    							    </span>
+    							</p>
+    							<div class="btn-group">
+    								<span class="btn" id="J_submit">确认</span>
+    							</div>
+    						</div>
+    					</li>
+					</ul>
     			</div>
     		</div>
     	</div>
@@ -92,5 +131,7 @@
 	        </p>
 	    </div>
 	</div>
+	<script type="text/javascript" src="http://passport.ypzdw.cc:8088/static/js/jquery-1.11.0.js"></script>
+	<script type="text/javascript" src="http://passport.ypzdw.cc:8088/static/plugins/layer/layer.js"></script>
 </body>
 </html>

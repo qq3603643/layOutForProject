@@ -56,7 +56,7 @@ body
 					float: left;
 					.l-pic
 					{
-						/* width: 315px; */
+						width: 315px;
 						height: 64px;
 					}
 				}
@@ -335,14 +335,6 @@ body
 										&.getcode
 										{
 											color: #000;
-											&.count
-											{
-												color: #bbb;
-												.red
-												{
-													color: #ff3434;
-												}
-											}
 										}
 									}
 								}
@@ -363,6 +355,7 @@ body
 											&.hide
 											{
 												display: none;
+												visibility: hidden;
 												transform: translateX(10px);
 											}
 										}
